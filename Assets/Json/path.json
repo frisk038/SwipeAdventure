@@ -1,0 +1,42 @@
+[
+	{
+		"i": 0,
+		"d": "[center]Y en a marre de manger des patates, il me faut de la viande ! Je jure que le prochain animal que je croise ca le regretter ![/center]",
+		"a": "res://Assets/Card/intro/expo/card1.png",
+		"p": [
+			1,
+			1,
+			1,
+			1
+		],
+		"s": "Normal",
+		"l": 0,
+		"k": 0,
+		"v": "_",
+		"n": "_",
+		"lt": "[center]Par là ![/center]",
+		"ut": "[center]Encore plus loin ![/center]",
+		"rt": "[center]Par ici ![/center]",
+		"dt": "[center]Rentrer bredouille...[/center]"
+	},
+	{
+		"i": 1,
+		"d": "[center]\"Grrrowl\" Ah ça c'etait mon ventre ! Allez un truc, n'importe quoi... Je sens qu'elle m'attends avec sa soupe...[/center]",
+		"a": "res://Assets/Card/intro/expo/card2.png",
+		"p": [
+			0,
+			0,
+			0,
+			0
+		],
+		"s": "Normal",
+		"l": 0,
+		"k": 0,
+		"v": "_",
+		"n": "_",
+		"lt": "[center]Par ici ![/center]",
+		"ut": "[center]Par là ?[/center]",
+		"rt": "[center]Vers là...[/center]",
+		"dt": "[center]C'est pas si mal les patates...[/center]"
+	}
+]
