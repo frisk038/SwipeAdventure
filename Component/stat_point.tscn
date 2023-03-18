@@ -15,7 +15,7 @@ animations = [ {
 size = 30
 font_data = ExtResource( 2 )
 
-[node name="life_point" type="Node2D"]
+[node name="stat_point" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.1 )

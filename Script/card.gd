@@ -77,7 +77,6 @@ func on_dragging(evt_position:Vector2):
 			anim_player.play(anim+'_drag', -1, -1)
 		previous_direction = choice
 
-
 func vector_to_choice(vec:Vector2):
 	var drag_direction:Vector2 = vec - drag_start_pos
 	if drag_direction.length() < DETECTION_TRESHOLD:

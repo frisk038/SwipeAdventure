@@ -1,7 +1,7 @@
 extends Node
 
 onready var roaming_ui = $roaming
-#onready var fighting_ui = $Fighting
+onready var fighting_ui = $fighting
 
 func updateCard():
 	var curCard = GlobalPath.game_path[Player.state.card]
@@ -9,9 +9,9 @@ func updateCard():
 		"Normal":
 			roaming_ui.visible=true
 			roaming_ui.call("updateState", curCard)
-#		"Fight":
-#			fighting_ui.visible=true
-#			fighting_ui.call("updateState", curCard)
+		"Fight":
+			fighting_ui.visible=true
+			fighting_ui.call("updateState", curCard)
 
 func _on_Path_new_path():
 	updateCard()
@@ -19,7 +19,6 @@ func _on_Path_new_path():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var err = GlobalPath.connect("new_path", self, "_on_Path_new_path")
-#	var err = connect("new_path", Path, "_on_Path_new_path")
 	if err != OK:
 		print("cant connect new_path signal !", err)
 	updateCard()

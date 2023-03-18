@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Component/card.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Script/fight.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Component/stat_point.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+extra_spacing_top = 7
+font_data = ExtResource( 3 )
+
+[node name="fight" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bg_color" type="ColorRect" parent="."]
+margin_right = 727.0
+margin_bottom = 1088.0
+color = Color( 0.227451, 0.219608, 0.270588, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="card" parent="." instance=ExtResource( 1 )]
+position = Vector2( 70, 192 )
+scale = Vector2( 2.2, 2.2 )
+
+[node name="enemy_name" type="Label" parent="."]
+margin_left = 76.0
+margin_top = 142.0
+margin_right = 314.0
+margin_bottom = 183.0
+custom_fonts/font = SubResource( 1 )
+text = "Junior l'invincible"
+
+[node name="player_mp" parent="." instance=ExtResource( 4 )]
+position = Vector2( 483, 973 )
+
+[node name="player_pn" parent="." instance=ExtResource( 4 )]
+position = Vector2( 593, 973 )
+
+[node name="player_lp" parent="." instance=ExtResource( 4 )]
+position = Vector2( 368, 973 )
+
+[node name="enemy_lp" parent="." instance=ExtResource( 4 )]
+position = Vector2( 583, 161 )
+
+[node name="dialogue" type="RichTextLabel" parent="."]
+margin_left = 71.0
+margin_top = 788.0
+margin_right = 650.0
+margin_bottom = 892.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Tu vas le regretter ![/center]"
+text = "Tu vas le regretter !"
