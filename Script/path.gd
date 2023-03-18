@@ -4,6 +4,7 @@ const LEFT = 0
 const UP = 1
 const RIGHT = 2
 const DOWN = 3
+const NONE = -1
 
 signal new_path
 

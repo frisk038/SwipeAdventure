@@ -280,13 +280,13 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.05, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 35, 0 ), Vector2( 350, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("card:rect_rotation")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -432,7 +432,5 @@ anims/right = SubResource( 10 )
 anims/right_drag = SubResource( 15 )
 anims/up = SubResource( 6 )
 anims/up_drag = SubResource( 16 )
-
-[node name="Tween" type="Tween" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

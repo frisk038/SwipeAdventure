@@ -9,11 +9,10 @@ onready var hint_up = $"card/AnimatedSprite/hint_up"
 onready var hint_right = $"card/AnimatedSprite/hint_right"
 onready var hint_down = $"card/AnimatedSprite/hint_down"
 onready var hint_up_bg = $"card/AnimatedSprite/hint_bg"
-onready var tween = $"Tween"
 
 var drag_start_pos:Vector2
 var is_dragging:bool
-var previous_direction:int
+var previous_direction:int = GlobalPath.NONE
 
 signal choice_made
 
@@ -62,22 +61,27 @@ func on_clicking(event:InputEventScreenTouch):
 	elif event.pressed == false:
 		hide_hint()
 		is_dragging = false
+		previous_direction = GlobalPath.NONE
 		get_choice(event.position)
-			
+
 func on_dragging(evt_position:Vector2):
 	var choice = vector_to_choice(evt_position)
-	if choice == -1 :
-		hide_hint()
-		previous_direction = -1
-		return
-	if previous_direction != choice:
+	if choice != previous_direction:
+		if previous_direction == GlobalPath.NONE:
+			show_hint(choice)
+			var anim = GlobalPath.path_to_string(choice)
+			anim_player.play(anim+'_drag')
+		else:
+			hide_hint()
+			var anim = GlobalPath.path_to_string(previous_direction)
+			anim_player.play(anim+'_drag', -1, -1)
 		previous_direction = choice
-		show_hint(choice)
+
 
 func vector_to_choice(vec:Vector2):
 	var drag_direction:Vector2 = vec - drag_start_pos
 	if drag_direction.length() < DETECTION_TRESHOLD:
-		return -1
+		return GlobalPath.NONE
 	var absVec = drag_direction.abs()
 	if absVec.x > absVec.y:
 		if drag_direction.x > 0 :
