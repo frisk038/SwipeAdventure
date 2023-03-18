@@ -15,6 +15,7 @@ onready var player_pn = $"player_pn/Label"
 var choices:Array
 var life:int
 var atk:int
+var first_turn:bool = true
 
 func updateState(pathNode:GlobalPath.PathNode):
 	choices = pathNode.paths
@@ -26,6 +27,7 @@ func updateState(pathNode:GlobalPath.PathNode):
 	enemy_life.text = str(pathNode.life)
 	life = pathNode.life
 	atk = pathNode.atk
+	first_turn = true
 	player_life.text = str(Player.state.life)
 	player_mp.text = str(Player.state.mp)
 	player_pn.text = str(Player.state.potion)
@@ -73,10 +75,16 @@ func _on_card_choice_made(choice):
 			GlobalPath.DOWN:
 				if randi() % 2:
 					flee = true
-
+		
+		if !first_turn:
+			Player.update_stats("life", Player.state.life - atk)
+			print("enemy atk ", str(atk))
+		
 		if Player.state.life <= 0:
 			GlobalPath.set_card(choices[GlobalPath.UP])
 		elif life <= 0:
 			GlobalPath.set_card(choices[GlobalPath.LEFT])
 		elif flee:
 			GlobalPath.set_card(choices[GlobalPath.RIGHT])
+		first_turn = false
+		
