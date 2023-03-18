@@ -17,7 +17,6 @@ class PathNode:
 	var special=""
 	var life=0
 	var atk=0
-	var avatar
 	var vname=""
 	var left_txt=""
 	var up_txt=""
@@ -32,10 +31,10 @@ class PathNode:
 		life = l
 		atk = k
 		vname = n
-		left_txt=lt
-		up_txt=ut
-		right_txt=rt
-		down_txt=dt
+		left_txt = lt
+		up_txt = ut
+		right_txt = rt
+		down_txt = dt
 		
 
 func path_to_string(path:int)-> String:
@@ -57,8 +56,6 @@ func fill_path(json):
 		jpath["d"], jpath["p"], jpath["s"], jpath["l"], 
 		jpath["k"], jpath["n"], jpath["lt"], jpath["ut"],
 		jpath["rt"], jpath["dt"])
-		if path.special=="Fight":
-			path.avatar = load(jpath["v"])
 		game_path.append(path)
 
 func set_card(card):

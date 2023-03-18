@@ -12,7 +12,7 @@ func updateState(pathNode):
 	choices = pathNode.paths
 	
 	img_card.frames.clear("default")
-	img_card.frames.add_frame("default", pathNode.avatar)
+	img_card.frames.add_frame("default", pathNode.img_res)
 	left_text.bbcode_text = "[center]Atk Special[/center]"
 	right_text.bbcode_text = "[center]Potion[/center]"
 	up_text.bbcode_text = "[center]Atk[/center]"
