@@ -2,6 +2,8 @@ extends Node
 
 var state :PlayerState
 
+signal player_updated
+
 class PlayerState:
 	var life:int
 	var atk: int
@@ -31,7 +33,10 @@ class PlayerState:
 	func read(json):
 		for key in json.keys():
 			set(key, json[key])
+			
+func update_stats(member:String, value:int):
+	state.set(member, value)
+	emit_signal("player_updated")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	state = PlayerState.new()

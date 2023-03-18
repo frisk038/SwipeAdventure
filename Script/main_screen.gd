@@ -25,7 +25,8 @@ func new_game():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_game()
+	load_game()
+	Player.state.atk = 1
 	var err = get_tree().change_scene("res://Scene/game.tscn")
 	if err != OK :
 		print("cant load game scene")
