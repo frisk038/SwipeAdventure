@@ -65,7 +65,10 @@ func on_clicking(event:InputEventScreenTouch):
 			
 func on_dragging(evt_position:Vector2):
 	var choice = vector_to_choice(evt_position)
-	if choice != -1 && previous_direction != choice:
+	if choice == -1 :
+		hide_hint()
+		return
+	if previous_direction != choice:
 		previous_direction = choice
 		show_hint(choice)
 
