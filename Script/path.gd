@@ -35,7 +35,20 @@ class PathNode:
 		up_txt=ut
 		right_txt=rt
 		down_txt=dt
+		
 
+func path_to_string(path:int)-> String:
+	match path:
+		LEFT:
+			return "left"
+		UP:
+			return "up"
+		RIGHT:
+			return "right"
+		DOWN:
+			return "down"
+		_:
+			return ""
 
 func fill_path(json):
 	for jpath in json:

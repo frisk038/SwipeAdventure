@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Script/card.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Card/intro/expo/card1.png" type="Texture" id=2]
@@ -100,6 +100,35 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 90.0 ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "down_drag"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 35 ), Vector2( 0, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("card:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 90.0 ]
+}
+
 [sub_resource type="Animation" id=9]
 resource_name = "left"
 length = 0.5
@@ -114,6 +143,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -350, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("card:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 90.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "left_drag"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -35, 0 ), Vector2( -350, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("card:rect_rotation")
@@ -184,6 +242,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=10]
 resource_name = "right"
 length = 0.5
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("card:rect_position")
 tracks/0/interp = 1
@@ -206,7 +265,36 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, -90.0 ]
+"values": [ 0.0, 0.0, 90.0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "right_drag"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 35, 0 ), Vector2( 350, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("card:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 90.0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -237,6 +325,35 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, -90.0 ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "up_drag"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -35 ), Vector2( 0, -350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("card:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -90.0 ]
+}
+
 [node name="card" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -247,7 +364,6 @@ margin_bottom = 265.0
 rect_pivot_offset = Vector2( 132.5, 132.5 )
 
 [node name="card" type="Panel" parent="."]
-visible = false
 margin_right = 265.0
 margin_bottom = 265.0
 rect_pivot_offset = Vector2( 132.5, 132.5 )
@@ -308,9 +424,15 @@ bbcode_enabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 7 )
 anims/down = SubResource( 8 )
+anims/down_drag = SubResource( 13 )
 anims/left = SubResource( 9 )
+anims/left_drag = SubResource( 14 )
 anims/reveal = SubResource( 11 )
 anims/right = SubResource( 10 )
+anims/right_drag = SubResource( 15 )
 anims/up = SubResource( 6 )
+anims/up_drag = SubResource( 16 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

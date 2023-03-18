@@ -9,6 +9,7 @@ onready var hint_up = $"card/AnimatedSprite/hint_up"
 onready var hint_right = $"card/AnimatedSprite/hint_right"
 onready var hint_down = $"card/AnimatedSprite/hint_down"
 onready var hint_up_bg = $"card/AnimatedSprite/hint_bg"
+onready var tween = $"Tween"
 
 var drag_start_pos:Vector2
 var is_dragging:bool
@@ -22,7 +23,7 @@ func reset_card():
 	card.rect_scale.x = -0.1
 	card.visible = false
 
-func get_choice(evt_position:Vector2=Vector2.ZERO):
+func get_choice(evt_position:Vector2):
 	var choice = vector_to_choice(evt_position)
 	match choice:
 		GlobalPath.RIGHT:
@@ -67,6 +68,7 @@ func on_dragging(evt_position:Vector2):
 	var choice = vector_to_choice(evt_position)
 	if choice == -1 :
 		hide_hint()
+		previous_direction = -1
 		return
 	if previous_direction != choice:
 		previous_direction = choice
@@ -102,9 +104,10 @@ func _input(event):
 		on_dragging(event.position)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if (anim_name != "reveal"):
+	if (anim_name != "reveal" && !("_drag" in anim_name) ):
 		reset_card()
 		anim_player.play("reveal")
+		
 	match anim_name:
 		"right":
 			emit_signal("choice_made", GlobalPath.RIGHT)
