@@ -8,9 +8,11 @@ func updateCard():
 	match curCard.special:
 		"Normal":
 			roaming_ui.visible=true
+			fighting_ui.visible=false
 			roaming_ui.call("updateState", curCard)
-		"Fight":
+		"Combat":
 			fighting_ui.visible=true
+			roaming_ui.visible=false
 			fighting_ui.call("updateState", curCard)
 
 func _on_Path_new_path():

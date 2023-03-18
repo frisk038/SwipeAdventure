@@ -58,3 +58,5 @@ custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]Tu vas le regretter ![/center]"
 text = "Tu vas le regretter !"
+
+[connection signal="choice_made" from="card" to="." method="_on_card_choice_made"]

@@ -11,4 +11,3 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="fighting" parent="." instance=ExtResource( 3 )]
-visible = false

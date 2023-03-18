@@ -1,42 +1,78 @@
 [
-	{
-		"i": 0,
-		"d": "[center]Y en a marre de manger des patates, il me faut de la viande ! Je jure que le prochain animal que je croise ca le regretter ![/center]",
-		"a": "res://Assets/Card/intro/expo/card1.png",
-		"p": [
-			1,
-			1,
-			1,
-			1
-		],
-		"s": "Normal",
-		"l": 0,
-		"k": 0,
-		"v": "_",
-		"n": "_",
-		"lt": "[center]Par là ![/center]",
-		"ut": "[center]Encore plus loin ![/center]",
-		"rt": "[center]Par ici ![/center]",
-		"dt": "[center]Rentrer bredouille...[/center]"
-	},
-	{
-		"i": 1,
-		"d": "[center]\"Grrrowl\" Ah ça c'etait mon ventre ! Allez un truc, n'importe quoi... Je sens qu'elle m'attends avec sa soupe...[/center]",
-		"a": "res://Assets/Card/intro/expo/card2.png",
-		"p": [
-			0,
-			0,
-			0,
-			0
-		],
-		"s": "Normal",
-		"l": 0,
-		"k": 0,
-		"v": "_",
-		"n": "_",
-		"lt": "[center]Par ici ![/center]",
-		"ut": "[center]Par là ?[/center]",
-		"rt": "[center]Vers là...[/center]",
-		"dt": "[center]C'est pas si mal les patates...[/center]"
-	}
+    {
+        "i": 0,
+        "d": "[center]Y en a marre de manger des patates, il me faut de la viande ! Je jure que le prochain animal que je croise ca le regretter ![/center]",
+        "a": "res://Assets/Card/intro/expo/card1.png",
+        "p": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par là ![/center]",
+        "ut": "[center]Encore plus loin ![/center]",
+        "rt": "[center]Par ici ![/center]",
+        "dt": "[center]Rentrer bredouille...[/center]"
+    },
+    {
+        "i": 1,
+        "d": "[center]\"Grrrowl\" Ah ça c'etait mon ventre ! Allez un truc, n'importe quoi... Je sens qu'elle m'attends avec sa soupe...[/center]",
+        "a": "res://Assets/Card/intro/expo/card2.png",
+        "p": [
+            2,
+            2,
+            2,
+            2
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par ici ![/center]",
+        "ut": "[center]Par là ?[/center]",
+        "rt": "[center]Vers là...[/center]",
+        "dt": "[center]C'est pas si mal les patates...[/center]"
+    },
+    {
+        "i": 2,
+        "d": "[center]Allez maintenant on rentre ![/center]",
+        "a": "res://Assets/Card/intro/expo/card3.png",
+        "p": [
+            3,
+            3,
+            3,
+            3
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Hâte de manger ce lapin ![/center]",
+        "ut": "[center]Elle va etre contente ![/center]",
+        "rt": "[center]Pas de patate ce soir ![/center]",
+        "dt": "[center]Je vais pouvoir me reposer ![/center]"
+    },
+    {
+        "i": 3,
+        "d": "[center]Ce lapin est a [color=red]MOI[/color]![/center]",
+        "a": "res://Assets/Card/intro/hunt/card8.png",
+        "p": [
+            0,
+            1,
+            2,
+            0
+        ],
+        "s": "Combat",
+        "l": 13,
+        "k": 2,
+        "n": "Ours Maleché",
+        "lt": "[center]None[/center]",
+        "ut": "[center]None[/center]",
+        "rt": "[center]None[/center]",
+        "dt": "[center]None[/center]"
+    }
 ]
