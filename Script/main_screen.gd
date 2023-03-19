@@ -30,8 +30,3 @@ func _ready():
 	var err = get_tree().change_scene("res://Scene/game.tscn")
 	if err != OK :
 		print("cant load game scene")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

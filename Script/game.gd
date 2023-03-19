@@ -2,8 +2,6 @@ extends Node
 
 onready var roaming_ui = $roaming
 onready var fighting_ui = $fighting
-onready var fighting_card = $"fighting/card"
-onready var roaming_card = $"roaming/card"
 
 func set_pause_node(node : Node, pause : bool) -> void:
 	node.set_process(!pause)
@@ -43,7 +41,3 @@ func _ready():
 	if err != OK:
 		print("cant connect new_path signal !", err)
 	updateCard()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

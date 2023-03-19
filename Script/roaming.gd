@@ -28,11 +28,6 @@ func updateState(pathNode):
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_card_choice_made(direction):
 	if visible:
 		GlobalPath.set_card(choices[direction])
