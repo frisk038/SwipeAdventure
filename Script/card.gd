@@ -1,6 +1,6 @@
 extends Node2D
 
-const DETECTION_TRESHOLD = 100
+const DETECTION_TRESHOLD = 200
 
 onready var card:Panel = $"card"
 onready var anim_player = $"AnimationPlayer"
@@ -73,6 +73,7 @@ func on_dragging(evt_position:Vector2):
 			anim_player.play(anim+'_drag')
 		else:
 			hide_hint()
+			is_dragging = !is_drag_axis_changed(previous_direction, choice)
 			var anim = GlobalPath.path_to_string(previous_direction)
 			anim_player.play(anim+'_drag', -1, -1)
 		previous_direction = choice
@@ -93,14 +94,30 @@ func vector_to_choice(vec:Vector2):
 		else:
 			return GlobalPath.UP
 
+func is_drag_axis_changed(previous:int, current:int) -> bool:
+	match current:
+		GlobalPath.LEFT:
+			if previous == GlobalPath.UP || previous == GlobalPath.DOWN:
+				return true
+		GlobalPath.RIGHT:
+			if previous == GlobalPath.UP || previous == GlobalPath.DOWN:
+				return true
+		GlobalPath.UP:
+			if previous == GlobalPath.LEFT || previous == GlobalPath.RIGHT:
+				return true
+		GlobalPath.DOWN:
+			if previous == GlobalPath.LEFT || previous == GlobalPath.RIGHT:
+				return true
+		_: return false
+	return false
 func _ready():
 	reset_card()
 	anim_player.play("reveal")
 	set_process_input(true)
 
 func _input(event):
-	if anim_player.is_playing():
-		return
+#	if anim_player.is_playing():
+#		return
 	if event is InputEventScreenTouch :
 		on_clicking(event)
 	elif is_dragging && event is InputEventScreenDrag:

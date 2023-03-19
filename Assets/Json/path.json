@@ -5,9 +5,9 @@
         "a": "res://Assets/Card/intro/expo/card1.png",
         "p": [
             1,
-            1,
-            1,
-            3
+            2,
+            2,
+            2
         ],
         "s": "Normal",
         "l": 0,
@@ -23,10 +23,10 @@
         "d": "[center]\"Grrrowl\" Ah ça c'etait mon ventre ! Allez un truc, n'importe quoi... Je sens qu'elle m'attends avec sa soupe...[/center]",
         "a": "res://Assets/Card/intro/expo/card2.png",
         "p": [
-            2,
-            2,
-            2,
-            2
+            0,
+            1,
+            0,
+            1
         ],
         "s": "Normal",
         "l": 0,
@@ -42,10 +42,10 @@
         "d": "[center]Allez maintenant on rentre ![/center]",
         "a": "res://Assets/Card/intro/expo/card3.png",
         "p": [
-            3,
-            3,
-            3,
-            3
+            0,
+            0,
+            0,
+            0
         ],
         "s": "Normal",
         "l": 0,
