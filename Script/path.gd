@@ -64,10 +64,10 @@ func set_card(card):
 	
 func _ready():
 	var file = File.new()
-	var err = file.open("res://Assets/Json/path.json", File.READ)
+	var err = file.open("res://Assets/JSON/path.json", File.READ)
 	if err != OK:
 		print("failed to load path.json file !")
-
+		return
 	var content = file.get_as_text()
 	file.close()
 	var json = parse_json(content)
