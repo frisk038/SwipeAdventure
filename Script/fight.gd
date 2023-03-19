@@ -49,7 +49,6 @@ func _ready():
 	if err != OK:
 		print("cant connect player_updated signal !", err)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -59,8 +58,8 @@ func _on_Player_player_updated():
 	player_pn.text = str(Player.state.potion)
 
 func _on_card_choice_made(choice):
-	var flee = false
 	if visible:
+		var flee = false
 		match choice:
 			GlobalPath.LEFT:
 				if Player.state.mp >= 1:
