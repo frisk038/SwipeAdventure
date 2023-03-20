@@ -97,8 +97,8 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if anim_player.is_playing():
-		return
+#	if anim_player.is_playing():
+#		return
 	if event is InputEventScreenTouch :
 		on_clicking(event)
 	elif is_dragging && event is InputEventScreenDrag:
