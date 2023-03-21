@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/food.png-ad185e91573628b7b339e60e72534ae3.stex"
+path="res://.import/birthstone_peridot_01.png-00fe3e6b77ca7faadce1092e9423edc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/food.png"
-dest_files=[ "res://.import/food.png-ad185e91573628b7b339e60e72534ae3.stex" ]
+source_file="res://Assets/HUD/birthstone_peridot_01.png"
+dest_files=[ "res://.import/birthstone_peridot_01.png-00fe3e6b77ca7faadce1092e9423edc1.stex" ]
 
 [params]
 

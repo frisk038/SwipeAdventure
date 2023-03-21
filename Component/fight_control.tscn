@@ -1,0 +1,279 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Component/fight_card_control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/HUD/birthstone_peridot_01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/ham.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/heart.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Script/fight_control.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "atk"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("fight_card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.5, 167 ), Vector2( 15.5, 200 ), Vector2( 15.5, 167 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player_layout:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.12, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 216, 714 ), Vector2( 216, 714 ), Vector2( 216, 750 ), Vector2( 216, 714 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fight_card:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.09, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "enemy_shake"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("enemy_layout:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 332, 120 ), Vector2( 340, 120 ), Vector2( 332, 120 ), Vector2( 325, 120 ), Vector2( 332, 120 ), Vector2( 340, 120 ), Vector2( 332, 120 ), Vector2( 325, 120 ), Vector2( 332, 120 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "player_flee"
+length = 0.3
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("player_layout:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 714, -0.25, 0, 0.25, 0, 900, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "player_heal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_layout:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.08, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "player_not_flee"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_layout:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 216, 714 ), Vector2( 216, 750 ), Vector2( 216, 714 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "player_prep_flee"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_layout:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "player_shake"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("player_layout:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 216, 714 ), Vector2( 205, 714 ), Vector2( 216, 714 ), Vector2( 225, 714 ), Vector2( 216, 714 ), Vector2( 205, 714 ), Vector2( 216, 714 ) ]
+}
+
+[node name="fight_control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="fight_card" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -255.0
+margin_right = 179.5
+margin_bottom = 107.0
+
+[node name="dialog" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 125.0
+margin_bottom = 28.5
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting [color=red]industry[/color].[center]"
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+fit_content_height = true
+
+[node name="name" type="RichTextLabel" parent="."]
+margin_top = 120.0
+margin_right = 311.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( -999, -94 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Lorem Ipsum is simply dummy[/center]"
+text = "Lorem Ipsum is simply dummy"
+fit_content_height = true
+
+[node name="enemy_layout" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -58.0001
+margin_top = 120.0
+margin_right = -0.000274658
+margin_bottom = 152.0
+
+[node name="life" type="TextureRect" parent="enemy_layout"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="lp" type="Label" parent="enemy_layout"]
+margin_left = 36.0
+margin_right = 52.0
+margin_bottom = 31.0
+text = "10
+"
+
+[node name="player_layout" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -174.0
+margin_top = -130.0
+margin_right = 0.00012207
+margin_bottom = -94.0
+
+[node name="life" type="TextureRect" parent="player_layout"]
+margin_right = 32.0
+margin_bottom = 36.0
+texture = ExtResource( 4 )
+
+[node name="lp" type="Label" parent="player_layout"]
+margin_left = 36.0
+margin_top = 2.0
+margin_right = 52.0
+margin_bottom = 33.0
+text = "10
+"
+
+[node name="mp_atk" type="TextureRect" parent="player_layout"]
+margin_left = 56.0
+margin_right = 88.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+
+[node name="mp" type="Label" parent="player_layout"]
+margin_left = 92.0
+margin_top = 2.0
+margin_right = 108.0
+margin_bottom = 33.0
+text = "10
+"
+
+[node name="food" type="TextureRect" parent="player_layout"]
+margin_left = 112.0
+margin_right = 144.0
+margin_bottom = 36.0
+texture = ExtResource( 3 )
+
+[node name="fp" type="Label" parent="player_layout"]
+margin_left = 148.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 33.0
+text = "10
+"
+
+[node name="enemy_anim" type="AnimationPlayer" parent="."]
+anims/atk = SubResource( 3 )
+
+[node name="player_anim" type="AnimationPlayer" parent="."]
+anims/enemy_shake = SubResource( 5 )
+anims/player_flee = SubResource( 6 )
+anims/player_heal = SubResource( 7 )
+anims/player_not_flee = SubResource( 8 )
+anims/player_prep_flee = SubResource( 9 )
+anims/player_shake = SubResource( 10 )
+
+[connection signal="choice_made" from="fight_card" to="." method="_on_fight_card_choice_made"]
+[connection signal="animation_finished" from="enemy_anim" to="." method="_on_enemy_anim_animation_finished"]
+[connection signal="animation_finished" from="player_anim" to="." method="_on_player_anim_animation_finished"]

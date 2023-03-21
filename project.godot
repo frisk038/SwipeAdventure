@@ -21,10 +21,8 @@ GlobalPath="*res://Script/path.gd"
 
 [display]
 
-window/size/width=720
-window/size/height=1080
-window/size/test_width=500
-window/size/test_height=800
+window/size/width=390
+window/size/height=844
 window/dpi/allow_hidpi=true
 window/energy_saving/keep_screen_on=false
 window/handheld/orientation="portrait"

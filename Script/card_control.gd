@@ -1,6 +1,6 @@
 extends Control
 
-const DETECTION_TRESHOLD = 100
+const DETECTION_TRESHOLD = 200
 
 onready var card:Panel = $"card"
 onready var anim_player = $"AnimationPlayer"
@@ -19,6 +19,8 @@ signal choice_made
 func reset_card():
 	card.rect_position = Vector2.ZERO
 	card.rect_rotation = 0.0
+	card.rect_scale.x = -0.1
+	card.visible = false
 
 func get_choice(evt_position:Vector2):
 	var choice = vector_to_choice(evt_position)
@@ -71,6 +73,7 @@ func on_dragging(evt_position:Vector2):
 			anim_player.play(anim+'_drag')
 		else:
 			hide_hint()
+			is_dragging = !is_drag_axis_changed(previous_direction, choice)
 			var anim = GlobalPath.path_to_string(previous_direction)
 			anim_player.play(anim+'_drag', -1, -1)
 		previous_direction = choice
@@ -91,6 +94,22 @@ func vector_to_choice(vec:Vector2):
 		else:
 			return GlobalPath.UP
 
+func is_drag_axis_changed(previous:int, current:int) -> bool:
+	match current:
+		GlobalPath.LEFT:
+			if previous == GlobalPath.UP || previous == GlobalPath.DOWN:
+				return true
+		GlobalPath.RIGHT:
+			if previous == GlobalPath.UP || previous == GlobalPath.DOWN:
+				return true
+		GlobalPath.UP:
+			if previous == GlobalPath.LEFT || previous == GlobalPath.RIGHT:
+				return true
+		GlobalPath.DOWN:
+			if previous == GlobalPath.LEFT || previous == GlobalPath.RIGHT:
+				return true
+		_: return false
+	return false
 func _ready():
 	reset_card()
 	anim_player.play("reveal")
@@ -107,7 +126,8 @@ func _input(event):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if (anim_name != "reveal" && !("_drag" in anim_name) ):
 		reset_card()
-
+		anim_player.play("reveal")
+		
 	match anim_name:
 		"right":
 			emit_signal("choice_made", GlobalPath.RIGHT)

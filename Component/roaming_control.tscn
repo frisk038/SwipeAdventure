@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Component/card_control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/HUD/ham.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/heart.png" type="Texture" id=4]
+[ext_resource path="res://Script/roaming_control.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+font_data = ExtResource( 2 )
+
+[node name="roaming_control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="location" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+margin_top = 108.0
+margin_bottom = 28.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Lorem Ipsum is simply dummy[/center]"
+text = "Lorem Ipsum is simply dummy"
+fit_content_height = true
+
+[node name="card_control" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -260.5
+margin_right = 179.5
+margin_bottom = 98.5
+
+[node name="description" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 130.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. [center]"
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
+fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = -148.0
+margin_right = 62.0
+margin_bottom = -114.0
+
+[node name="life" type="TextureRect" parent="HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 34.0
+texture = ExtResource( 4 )
+
+[node name="life_point" type="Label" parent="HBoxContainer"]
+margin_left = 36.0
+margin_top = 1.0
+margin_right = 52.0
+margin_bottom = 32.0
+text = "10
+"
+
+[node name="food" type="TextureRect" parent="HBoxContainer"]
+margin_left = 56.0
+margin_right = 88.0
+margin_bottom = 34.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="food_point" type="Label" parent="HBoxContainer"]
+margin_left = 92.0
+margin_top = 1.0
+margin_right = 108.0
+margin_bottom = 32.0
+text = "10
+"
+
+[connection signal="choice_made" from="card_control" to="." method="_on_card_control_choice_made"]
