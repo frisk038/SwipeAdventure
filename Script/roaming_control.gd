@@ -1,9 +1,9 @@
 extends Control
 
-onready var left_text = $"card_control/card/AnimatedSprite/hint_left"
-onready var up_text = $"card_control/card/AnimatedSprite/hint_up"
-onready var right_text = $"card_control/card/AnimatedSprite/hint_right"
-onready var down_text = $"card_control/card/AnimatedSprite/hint_down"
+onready var left_text = $"card_control/card/AnimatedSprite/hint_bg/hint_left"
+onready var up_text = $"card_control/card/AnimatedSprite/hint_bg/hint_up"
+onready var right_text = $"card_control/card/AnimatedSprite/hint_bg/hint_right"
+onready var down_text = $"card_control/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"card_control/card/AnimatedSprite"
 onready var life_point = $"HBoxContainer/life_point"
 onready var food_point = $"HBoxContainer/food_point"

@@ -357,8 +357,12 @@ tracks/1/keys = {
 [node name="card" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="back2" type="Panel" parent="."]
+margin_right = 265.0
+margin_bottom = 265.0
+rect_pivot_offset = Vector2( 132.5, 132.5 )
+
 [node name="back" type="Panel" parent="."]
-visible = false
 margin_right = 265.0
 margin_bottom = 265.0
 rect_pivot_offset = Vector2( 132.5, 132.5 )

@@ -42,10 +42,10 @@
         "d": "[center]Allez maintenant on rentre ![/center]",
         "a": "res://Assets/Card/intro/expo/card3.png",
         "p": [
-            3,
-            3,
-            3,
-            3
+            0,
+            0,
+            0,
+            0
         ],
         "s": "Normal",
         "l": 0,
