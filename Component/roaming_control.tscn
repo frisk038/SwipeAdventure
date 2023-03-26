@@ -21,7 +21,7 @@ script = ExtResource( 5 )
 
 [node name="location" type="RichTextLabel" parent="."]
 anchor_right = 1.0
-margin_top = 108.0
+margin_top = 70.0
 margin_bottom = 28.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
@@ -34,16 +34,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -179.5
-margin_top = -260.5
-margin_right = 179.5
-margin_bottom = 98.5
+margin_left = -180.0
+margin_top = -166.0
+margin_right = 179.0
+margin_bottom = 195.0
 
 [node name="description" type="RichTextLabel" parent="."]
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = 130.0
+margin_top = 114.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. [center]"
