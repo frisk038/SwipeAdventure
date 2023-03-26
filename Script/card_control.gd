@@ -84,7 +84,7 @@ func on_dragging(evt_position:Vector2):
 		if choice == GlobalPath.LEFT || choice == GlobalPath.RIGHT:
 			move = pos.x
 		
-		card.rect_rotation =  -move * 0.025
+		card.rect_rotation =  -move * 0.050
 		hint_up_bg.modulate = lerp(Color("#00ffffff"), Color("#ffffffff"), 
 			abs(move)/hint_visible_dist)
 
@@ -110,12 +110,12 @@ func _input(event):
 	elif is_dragging && event is InputEventScreenDrag:
 		on_dragging(event.position)
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(choice):
 	# back scale down 
 	var tween := create_tween()
 	tween.tween_property(back, "rect_scale:x", 0.1, 0.2).set_ease(Tween.EASE_IN_OUT)
 	yield(tween, "finished")
-	emit_signal("choice_made", anim_name)
+	emit_signal("choice_made", choice)
 	# reset back and card
 	back.visible = false
 	card.rect_position = Vector2.ZERO
