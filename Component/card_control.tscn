@@ -85,29 +85,33 @@ margin_bottom = -43.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="hint_up" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
+margin_top = 12.0
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 195.0
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 
 [node name="hint_right" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
+margin_top = 12.1429
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 195.143
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 
 [node name="hint_down" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
+margin_top = 12.1429
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 195.143
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 
 [node name="hint_left" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
+margin_top = 12.1429
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 195.143
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
