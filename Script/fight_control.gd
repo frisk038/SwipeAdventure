@@ -1,10 +1,11 @@
 extends Control
 
-onready var card = $"fight_card"
-onready var left_text = $"fight_card/card/AnimatedSprite/hint_left"
-onready var up_text = $"fight_card/card/AnimatedSprite/hint_up"
-onready var right_text = $"fight_card/card/AnimatedSprite/hint_right"
-onready var down_text = $"fight_card/card/AnimatedSprite/hint_down"
+onready var card = $"fight_card/card"
+onready var fcard = $"fight_card"
+onready var left_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_left"
+onready var up_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_up"
+onready var right_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_right"
+onready var down_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"fight_card/card/AnimatedSprite"
 onready var enemy_name = $"name"
 onready var enemy_life = $"enemy_layout/lp"
@@ -12,15 +13,22 @@ onready var enemy_dialog = $"dialog"
 onready var player_life = $"player_layout/lp"
 onready var player_mp = $"player_layout/mp"
 onready var player_pn = $"player_layout/fp"
-onready var anim_player = $"player_anim"
-onready var anim_enemy = $"enemy_anim"
 onready var player_layout = $"player_layout"
+onready var enemy_layout = $"enemy_layout"
 
 var choices:Array
 var life:int
 var atk:int
 var flee_pending:bool = false
 var flee_granted:bool = false
+var flee_tween:Tween
+
+func new_timestamp():
+	var tick = OS.get_ticks_msec()
+	var ms = str(tick)
+	ms.erase(ms.length() - 1, 1)
+	var timestamp = str(tick/3600000)+":"+str(tick/60000).pad_zeros(2)+":"+str(tick/1000).pad_zeros(2)+"."+ms+"\t"
+	return timestamp
 
 func updateState(pathNode:GlobalPath.PathNode):
 	choices = pathNode.paths
@@ -50,17 +58,36 @@ func set_life(new_life:int):
 		print("bravo")
 	enemy_life.text = str(life)
 
-func check_end() -> bool:
-	if flee_granted:
-		GlobalPath.set_card(choices[GlobalPath.RIGHT])
-		return true
-	elif Player.state.life <= 0:
-		GlobalPath.set_card(choices[GlobalPath.UP])
-		return true
-	elif life <= 0:
-		GlobalPath.set_card(choices[GlobalPath.LEFT])
-		return true
-	return false
+func animate_hit(obj:Control, vec:Vector2 ):
+	var start_pos = obj.rect_position
+	var tween := create_tween()
+	tween.tween_property(obj, "rect_position", start_pos+vec, 0.2)\
+		.set_trans(Tween.TRANS_ELASTIC)\
+		.set_ease(Tween.EASE_IN_OUT)
+	yield(tween, "finished")
+	tween = create_tween()
+	tween.tween_property(obj, "rect_position", start_pos, 0.2)\
+		.set_trans(Tween.TRANS_ELASTIC)\
+		.set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(obj, "modulate:a", 0, 0.3)
+	yield(tween, "finished")
+	tween = create_tween()
+	tween.tween_property(obj, "modulate:a", 1, 0.5)
+	yield(tween, "finished")
+
+func animate_buf(obj:Control):
+	var scale = obj.rect_scale
+	var tween := create_tween()
+	tween.tween_property(obj, "rect_scale", Vector2(1.1, 1.1), 0.3)\
+		.set_trans(Tween.TRANS_ELASTIC)\
+		.set_ease(Tween.EASE_IN_OUT)
+	yield(tween, "finished")
+	
+	tween = create_tween()
+	tween.tween_property(obj, "rect_scale", scale, 0.2)\
+		.set_trans(Tween.TRANS_ELASTIC)\
+		.set_ease(Tween.EASE_IN_OUT)
+	yield(tween, "finished")
 
 func _ready():
 	var err = Player.connect("player_updated", self, "_on_Player_player_updated")
@@ -74,43 +101,69 @@ func _on_Player_player_updated():
 
 func _on_fight_card_choice_made(choice):
 	match choice:
+		GlobalPath.UP:
+			yield(animate_hit(enemy_layout, Vector2(0, -30)), "completed")
+			set_life(life - Player.state.atk)
 		GlobalPath.LEFT:
 			if Player.state.mp >= 1:
-				anim_player.play("enemy_shake")
 				Player.update_stats("mp", Player.state.mp - 1)
-				set_life(life - Player.state.atk * 2) 
-		GlobalPath.UP:
-			anim_player.play("enemy_shake")
-			set_life(life - Player.state.atk) 
+				yield(animate_hit(enemy_layout, Vector2(0, -30)), "completed")
+				set_life(life - Player.state.atk * 2)
+			else: return
 		GlobalPath.RIGHT:
 			if Player.state.potion > 0:
 				Player.update_stats("potion", Player.state.potion - 1)
+				yield(animate_buf(player_layout), "completed")
 				Player.update_stats("life", Player.state.life+2)
-				anim_player.play("player_heal")
+			else: return
 		GlobalPath.DOWN:
 			if randi() % 2:
 				flee_pending = true
-				anim_player.play("player_prep_flee")
+				var tween = create_tween()
+				tween.tween_property(player_layout, "modulate:a", 0.5, 0.5)
+				yield(tween, "finished")
 			else:
-				anim_player.play("player_not_flee")
+				var tween = create_tween()
+				tween.tween_property(player_layout, "modulate", Color("ff0000"), 0.3)
+				yield(tween, "finished")
+				tween = create_tween()
+				tween.tween_property(player_layout, "modulate", Color("ffffff"), 0.5)
+				yield(tween, "finished")
+	player_turn_end()
 
-func _on_player_anim_animation_finished(_anim_name):
-	if check_end():
+func player_turn_end():
+	fcard.set_process_input(false)
+	if life <= 0:
+		GlobalPath.set_card(choices[GlobalPath.LEFT])
+	else:
+		var tween := create_tween()
+		var start_pos = card.rect_position
+		tween.tween_property(card, "rect_position", start_pos+Vector2(0, 50), 0.2)\
+			.set_trans(Tween.TRANS_ELASTIC)\
+			.set_ease(Tween.EASE_IN_OUT)
+		tween.parallel().tween_property(card, "rect_rotation", 10, 0.2)\
+			.set_trans(Tween.TRANS_ELASTIC)\
+			.set_ease(Tween.EASE_IN_OUT)
+		yield(tween, "finished")
+		tween = create_tween()
+		tween.tween_property(card, "rect_position", start_pos, 0.2)\
+			.set_trans(Tween.TRANS_ELASTIC)\
+			.set_ease(Tween.EASE_IN_OUT)
+		tween.parallel().tween_property(card, "rect_rotation", 0, 0.2)\
+			.set_trans(Tween.TRANS_ELASTIC)\
+			.set_ease(Tween.EASE_IN_OUT)
+		yield(animate_hit(player_layout, Vector2(0, 20)), "completed")
+		Player.update_stats("life", Player.state.life - atk)
+		if Player.state.life <= 0:
+			GlobalPath.set_card(choices[GlobalPath.UP])
+	if flee_pending :
+		var start_pos = player_layout.rect_position
+		var tween = create_tween()
+		tween.tween_property(player_layout, "rect_position", start_pos+Vector2(0, 150), 3)\
+			.set_trans(Tween.TRANS_ELASTIC)\
+			.set_ease(Tween.EASE_IN_OUT)
+		yield(tween, "finished")
+		player_layout.rect_position = start_pos
+		GlobalPath.set_card(choices[GlobalPath.RIGHT])
 		return
-
-	card.set_process_input(false)
-	Player.update_stats("life", Player.state.life - atk)
-	anim_enemy.play("atk")
-	
-func _on_enemy_anim_animation_finished(_anim_name):
-	card.set_process_input(true)
-	if check_end():
-		return
-	
-	if flee_pending:
-		flee_granted = true
-		flee_pending = false
-		anim_player.play("player_flee")
-
-
-
+	fcard.set_process_input(true)

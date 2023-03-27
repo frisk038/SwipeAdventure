@@ -28,6 +28,7 @@ func updateState(pathNode):
 	up_text.bbcode_text = pathNode.up_txt
 	down_text.bbcode_text = pathNode.down_txt
 	lapsed = 0
+	description.visible_characters = 0
 #	description.bbcode_text = ""
 #	yield(get_tree().create_timer(1.0), "timeout")
 	description.bbcode_text = pathNode.desc_text
