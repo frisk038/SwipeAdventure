@@ -69,7 +69,7 @@ func on_clicking(event:InputEventScreenTouch):
 	if event.is_pressed() && card.get_rect().has_point(get_local_mouse_position()):
 		drag_start_pos = event.position
 		is_dragging = true
-	elif event.pressed == false:
+	elif event.pressed == false && is_dragging:
 		is_dragging = false
 		on_click_release(event.position)
 
@@ -111,24 +111,8 @@ func _input(event):
 		on_dragging(event.position)
 
 func _on_animation_finished(choice):
-#	# back scale down 
-#	var tween := create_tween()
-#	tween.tween_property(back, "rect_scale:x", 0.1, 0.2).set_ease(Tween.EASE_IN_OUT)
-#	yield(tween, "finished")
 	emit_signal("choice_made", choice)
-#	# reset back and card
-#	back.visible = false
-#	card.rect_position = Vector2.ZERO
-#	card.rect_rotation = 0.0
-#	card.rect_scale.x = 0.1
-#	# car scale up
-#	tween = create_tween()
-#	tween.tween_property(card, "rect_scale:x", 1, 0.2).set_ease(Tween.EASE_IN_OUT)
-#	yield(tween, "finished")
-#	# hide back behind card
-#	back.visible = true
-#	back.rect_position = Vector2.ZERO
-#	back.rect_scale.x = 1
+
 
 func reveal_next_card():
 	var tween := create_tween()
