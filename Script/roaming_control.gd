@@ -9,6 +9,7 @@ onready var life_point = $"stat_bg/HBoxContainer/life/life_point"
 onready var food_point = $"stat_bg/HBoxContainer/food/food_point"
 onready var money_point = $"stat_bg/HBoxContainer/money/money_point"
 onready var description = $"texture_desc/description"
+onready var card = $card_control
 
 const TEXT_APPEARING_SPEED = 0.03 
 var choices:Array
@@ -31,8 +32,7 @@ func updateState(pathNode):
 	down_text.bbcode_text = pathNode.down_txt
 	lapsed = 0
 	description.visible_characters = 0
-#	description.bbcode_text = ""
-#	yield(get_tree().create_timer(1.0), "timeout")
+	card.call("reveal_next_card")
 	description.bbcode_text = pathNode.desc_text
 	
 # Called when the node enters the scene tree for the first time.
