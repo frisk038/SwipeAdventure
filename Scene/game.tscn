@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Component/roaming_control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/game_control.gd" type="Script" id=2]
 [ext_resource path="res://Component/fight_control.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Component/trans_fight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Component/trans_fight_end.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "reveal_fight"
@@ -22,6 +23,22 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=2]
+resource_name = "reveal_fight_end"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("../trans_fight_end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,6 +47,7 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../trans_fight")
 anims/reveal_fight = SubResource( 1 )
+anims/reveal_fight_end = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -43,3 +61,8 @@ visible = false
 
 [node name="trans_fight" parent="." instance=ExtResource( 4 )]
 modulate = Color( 1, 1, 1, 0 )
+
+[node name="trans_fight_end" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[connection signal="fight_end" from="fight_control" to="." method="_on_fight_control_fight_end"]

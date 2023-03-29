@@ -16,6 +16,8 @@ onready var player_pn = $"stat_bg/player_layout/food/fp"
 onready var player_layout = $"stat_bg/player_layout"
 onready var enemy_layout = $"life_bg/enemy_layout"
 
+signal fight_end
+
 var choices:Array
 var life:int
 var atk:int
@@ -58,7 +60,7 @@ func set_life(new_life:int):
 		print("bravo")
 	enemy_life.text = str(life)
 
-func animate_hit(obj:Control, vec:Vector2 ):
+func animate_hit(obj:Control, vec:Vector2):
 	var start_pos = obj.rect_position
 	var tween := create_tween()
 	tween.tween_property(obj, "rect_position", start_pos+vec, 0.2)\
@@ -122,7 +124,6 @@ func _on_fight_card_choice_made(choice):
 				var tween = create_tween()
 				tween.tween_property(player_layout, "modulate:a", 0.5, 0.5)
 				yield(tween, "finished")
-				
 			else:
 				var tween = create_tween()
 				tween.tween_property(player_layout, "modulate", Color("ff0000"), 0.3)
@@ -135,7 +136,7 @@ func _on_fight_card_choice_made(choice):
 func player_turn_end():
 	fcard.set_process_input(false)
 	if life <= 0:
-		GlobalPath.set_card(choices[GlobalPath.LEFT])
+		emit_signal("fight_end", GlobalPath.LEFT)
 	else:
 		var tween := create_tween()
 		var start_pos = card.rect_position
@@ -156,7 +157,8 @@ func player_turn_end():
 		yield(animate_hit(player_layout, Vector2(0, 20)), "completed")
 		Player.update_stats("life", Player.state.life - atk)
 		if Player.state.life <= 0:
-			GlobalPath.set_card(choices[GlobalPath.UP])
+			emit_signal("fight_end", GlobalPath.UP)
+#			GlobalPath.set_card(choices[GlobalPath.UP])
 	if flee_pending :
 		var start_pos = player_layout.rect_position
 		var tween = create_tween()
@@ -165,6 +167,7 @@ func player_turn_end():
 			.set_ease(Tween.EASE_IN_OUT)
 		yield(tween, "finished")
 		player_layout.rect_position = start_pos
-		GlobalPath.set_card(choices[GlobalPath.RIGHT])
+		emit_signal("fight_end", GlobalPath.RIGHT)
+#		GlobalPath.set_card(choices[GlobalPath.RIGHT])
 		return
 	fcard.set_process_input(true)
