@@ -116,11 +116,11 @@ margin_right = 52.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 15, 15 )
 
-[node name="food" type="TextureRect" parent="stat_bg/HBoxContainer"]
+[node name="food" type="TextureButton" parent="stat_bg/HBoxContainer"]
 margin_left = 56.0
 margin_right = 88.0
 margin_bottom = 32.0
-texture = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
 stretch_mode = 3
 
 [node name="food_point" type="Label" parent="stat_bg/HBoxContainer/food"]
@@ -157,3 +157,4 @@ margin_top = -14.0
 text = "99"
 
 [connection signal="choice_made" from="card_control" to="." method="_on_card_control_choice_made"]
+[connection signal="pressed" from="stat_bg/HBoxContainer/food" to="." method="_on_food_pressed"]

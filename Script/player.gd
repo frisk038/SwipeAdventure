@@ -9,6 +9,7 @@ class PlayerState:
 	var atk: int
 	var mp: int
 	var potion: int
+	var money:int
 	var luck: int
 	var card:int
 	
@@ -19,6 +20,7 @@ class PlayerState:
 		potion = 5
 		luck = randi()%10+1
 		card = 0
+		money = randi()%99+1
 	
 	func save():
 		return {
@@ -27,7 +29,8 @@ class PlayerState:
 			"potion" : potion,
 			"life" : life,
 			"luck" : luck,
-			"card" : card
+			"card" : card,
+			"money": money
 		}
 
 	func read(json):

@@ -7,6 +7,7 @@ onready var down_text = $"card_control/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"card_control/card/AnimatedSprite"
 onready var life_point = $"stat_bg/HBoxContainer/life/life_point"
 onready var food_point = $"stat_bg/HBoxContainer/food/food_point"
+onready var money_point = $"stat_bg/HBoxContainer/money/money_point"
 onready var description = $"texture_desc/description"
 
 const TEXT_APPEARING_SPEED = 0.03 
@@ -18,6 +19,7 @@ func _physics_process(delta):
 	description.visible_characters = lapsed/TEXT_APPEARING_SPEED
 
 func updateState(pathNode):
+	_on_Player_player_updated()
 	img_card.frames.clear("default")
 	img_card.frames.add_frame("default", pathNode.img_res)
 	
@@ -36,7 +38,20 @@ func updateState(pathNode):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lapsed = 0
+	var err = Player.connect("player_updated", self, "_on_Player_player_updated")
+	if err != OK:
+		print("cant connect player_updated signal !", err)
 
+func _on_Player_player_updated():
+	life_point.text = str(Player.state.life)
+	food_point.text = str(Player.state.potion)
+	money_point.text = str(Player.state.money)
+	
 func _on_card_control_choice_made(direction):
 	if visible:
 		GlobalPath.set_card(choices[direction])
+
+func _on_food_pressed():
+	if Player.state.potion > 0:
+		Player.update_stats("potion", Player.state.potion - 1)
+		Player.update_stats("life", Player.state.life+2)
