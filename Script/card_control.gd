@@ -17,8 +17,9 @@ signal choice_made
 
 func on_click_release(evt_position:Vector2):
 	hide_hint()
-
+	
 	var vec = evt_position - drag_start_pos
+	print(vec.length())
 	if vec.length() < DETECTION_TRESHOLD:
 		var tween := create_tween()
 		tween.tween_property(card, "rect_position", Vector2.ZERO, 0.2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN_OUT)
@@ -66,8 +67,7 @@ func hide_hint():
 	hint_up_bg.modulate.a = 0
 
 func on_clicking(event:InputEventScreenTouch):
-	if event.is_pressed():
-#		if card.get_rect().has_point(event.position):
+	if event.is_pressed() && card.get_rect().has_point(get_local_mouse_position()):
 		drag_start_pos = event.position
 		is_dragging = true
 	elif event.pressed == false:
@@ -106,7 +106,7 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event is InputEventScreenTouch && card.get_rect().has_point(get_local_mouse_position()):
+	if event is InputEventScreenTouch:
 		on_clicking(event)
 	elif is_dragging && event is InputEventScreenDrag:
 		on_dragging(event.position)
