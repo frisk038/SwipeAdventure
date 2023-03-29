@@ -34,6 +34,8 @@ func updateCard():
 			set_pause_scene(fighting_ui, false)
 			fighting_ui.visible=true
 			fighting_ui.call("updateState", curCard)
+			anim_player.play_backwards("reveal_fight")
+			yield(anim_player, "animation_finished")
 
 func _on_Path_new_path():
 	updateCard()
