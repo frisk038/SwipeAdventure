@@ -87,7 +87,7 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event is InputEventScreenTouch :
+	if event is InputEventScreenTouch && card.get_rect().has_point(get_local_mouse_position()) :
 		on_clicking(event)
 	elif is_dragging && event is InputEventScreenDrag:
 		on_dragging(event.position)

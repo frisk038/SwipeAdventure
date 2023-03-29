@@ -31,8 +31,8 @@ extra_spacing_top = 25
 font_data = ExtResource( 3 )
 
 [node name="card_control" type="Control"]
-margin_right = 350.0
-margin_bottom = 359.0
+margin_right = 337.0
+margin_bottom = 339.0
 script = ExtResource( 4 )
 
 [node name="back2" type="Panel" parent="."]

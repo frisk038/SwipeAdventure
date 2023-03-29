@@ -66,7 +66,8 @@ func hide_hint():
 	hint_up_bg.modulate.a = 0
 
 func on_clicking(event:InputEventScreenTouch):
-	if event.is_pressed() :
+	if event.is_pressed():
+#		if card.get_rect().has_point(event.position):
 		drag_start_pos = event.position
 		is_dragging = true
 	elif event.pressed == false:
@@ -105,7 +106,7 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event is InputEventScreenTouch :
+	if event is InputEventScreenTouch && card.get_rect().has_point(get_local_mouse_position()):
 		on_clicking(event)
 	elif is_dragging && event is InputEventScreenDrag:
 		on_dragging(event.position)
