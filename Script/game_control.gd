@@ -2,6 +2,7 @@ extends Control
 
 onready var roaming_ui = $roaming_control
 onready var fighting_ui = $fight_control
+onready var anim_player =  $AnimationPlayer
 
 func set_pause_node(node : Node, pause : bool) -> void:
 	node.set_process(!pause)
@@ -26,6 +27,8 @@ func updateCard():
 			roaming_ui.visible=true
 			roaming_ui.call("updateState", curCard)
 		"Combat":
+			anim_player.play("reveal_fight")
+			yield(anim_player, "animation_finished")
 			set_pause_scene(roaming_ui, true)
 			roaming_ui.visible=false
 			set_pause_scene(fighting_ui, false)
