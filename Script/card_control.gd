@@ -19,7 +19,6 @@ func on_click_release(evt_position:Vector2):
 	hide_hint()
 	
 	var vec = evt_position - drag_start_pos
-	print(vec.length())
 	if vec.length() < DETECTION_TRESHOLD:
 		var tween := create_tween()
 		tween.tween_property(card, "rect_position", Vector2.ZERO, 0.2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN_OUT)
