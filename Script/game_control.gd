@@ -4,6 +4,8 @@ onready var roaming_ui = $roaming_control
 onready var fighting_ui = $fight_control
 onready var fight_end_text = $trans_fight_end/Label
 onready var anim_player =  $AnimationPlayer
+onready var trans_fight = $trans_fight
+onready var trans_fight_end = $trans_fight_end
 
 func set_pause_node(node : Node, pause : bool) -> void:
 	node.set_process(!pause)
@@ -28,6 +30,7 @@ func updateCard():
 			roaming_ui.visible=true
 			roaming_ui.call("updateState", curCard)
 		"Combat":
+			trans_fight.visible = true
 			anim_player.play("reveal_fight")
 			yield(anim_player, "animation_finished")
 			set_pause_scene(roaming_ui, true)
@@ -37,6 +40,7 @@ func updateCard():
 			fighting_ui.call("updateState", curCard)
 			anim_player.play_backwards("reveal_fight")
 			yield(anim_player, "animation_finished")
+			trans_fight.visible = false
 
 func _on_Path_new_path():
 	updateCard()
@@ -51,11 +55,13 @@ func _on_fight_control_fight_end(path:int):
 		GlobalPath.RIGHT:
 			fight_end_text.text = "COMBAT FLEED !"
 	
+	trans_fight_end.visible = true
 	anim_player.play("reveal_fight_end")
 	yield(anim_player, "animation_finished")
 	GlobalPath.set_card(choices[path])
 	anim_player.play_backwards("reveal_fight_end")
 	yield(anim_player, "animation_finished")
+	trans_fight_end.visible = false
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

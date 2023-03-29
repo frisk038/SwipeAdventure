@@ -60,9 +60,11 @@ color = Color( 0.211765, 0.270588, 0.309804, 1 )
 visible = false
 
 [node name="trans_fight" parent="." instance=ExtResource( 4 )]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="trans_fight_end" parent="." instance=ExtResource( 5 )]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [connection signal="fight_end" from="fight_control" to="." method="_on_fight_control_fight_end"]

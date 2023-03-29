@@ -1,5 +1,9 @@
 extends Control
 
+onready var loader = $trans_main_screen
+onready var main_anim = $AnimationPlayer
+onready var loader_anim = $trans_main_screen/AnimationPlayer
+
 const file_name="res://savegame.save"
 
 func load_game():
@@ -31,7 +35,14 @@ func _ready():
 
 
 func _on_continue_pressed():
+	loader.visible=true
+	main_anim.play("reveal")
+	yield(main_anim, "animation_finished")
 	load_game()
+	loader_anim.play("loading")
+	yield(loader_anim, "animation_finished")
+	loader.visible=false
+	
 	var err = get_tree().change_scene("res://Scene/game.tscn")
 	if err != OK :
 		print("cant load game scene")
