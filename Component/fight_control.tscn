@@ -1,18 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Component/fight_card_control.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/HUD/birthstone_peridot_01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/birthstone_agate_01.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/ham.png" type="Texture" id=3]
 [ext_resource path="res://Assets/HUD/heart.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Script/fight_control.gd" type="Script" id=6]
+[ext_resource path="res://Assets/UI/desc.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/location.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/enemy_life.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/fight_bg.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
-size = 15
+size = 21
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 22
+size = 12
 font_data = ExtResource( 5 )
 
 [node name="fight_control" type="Control"]
@@ -20,111 +24,164 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
+[node name="stat_bg" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -217.0
+margin_top = -157.0
+margin_right = -7.0
+margin_bottom = -82.0
+texture = ExtResource( 10 )
+
+[node name="player_layout" type="HBoxContainer" parent="stat_bg"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 22.0
+margin_top = -15.5
+margin_right = -25.0
+margin_bottom = 16.5
+rect_min_size = Vector2( 139, 10.5 )
+rect_scale = Vector2( 1.05333, 1 )
+
+[node name="life" type="TextureRect" parent="stat_bg/player_layout"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="lp" type="Label" parent="stat_bg/player_layout/life"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+text = "10"
+
+[node name="VSeparator" type="VSeparator" parent="stat_bg/player_layout"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 36.0
+margin_right = 56.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="mp_atk" type="TextureRect" parent="stat_bg/player_layout"]
+margin_left = 60.0
+margin_right = 92.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+
+[node name="mp" type="Label" parent="stat_bg/player_layout/mp_atk"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+text = "10"
+
+[node name="VSeparator2" type="VSeparator" parent="stat_bg/player_layout"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 96.0
+margin_right = 116.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="food" type="TextureRect" parent="stat_bg/player_layout"]
+margin_left = 120.0
+margin_right = 152.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+
+[node name="fp" type="Label" parent="stat_bg/player_layout/food"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+text = "10"
+
 [node name="fight_card" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -180.0
-margin_top = -166.0
-margin_right = 180.5
-margin_bottom = 195.0
+margin_left = -169.0
+margin_top = -130.0
+margin_right = 169.0
+margin_bottom = 208.0
 
-[node name="dialog" type="RichTextLabel" parent="."]
+[node name="enemy_name_bg" type="NinePatchRect" parent="."]
 anchor_right = 1.0
-margin_left = 8.0
-margin_top = 114.0
-margin_right = -8.0
-margin_bottom = 171.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting [color=red]industry[/color].[center]"
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-fit_content_height = true
+margin_top = 66.0
+margin_bottom = 97.0
+texture = ExtResource( 8 )
 
-[node name="name" type="RichTextLabel" parent="."]
+[node name="name" type="RichTextLabel" parent="enemy_name_bg"]
 anchor_right = 1.0
-margin_left = 12.0
-margin_top = 70.0
-margin_right = -14.0
+margin_left = 18.0
+margin_top = 1.0
+margin_right = -18.0
 margin_bottom = 28.0
-rect_pivot_offset = Vector2( -999, -94 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Lorem Ipsum is simply dummy[/center]"
 text = "Lorem Ipsum is simply dummy"
 fit_content_height = true
 
-[node name="enemy_layout" type="HBoxContainer" parent="."]
+[node name="dialog_bg" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+margin_left = 8.0
+margin_top = 110.0
+margin_right = -7.0
+margin_bottom = 153.0
+texture = ExtResource( 7 )
+
+[node name="dialog" type="RichTextLabel" parent="dialog_bg"]
+anchor_right = 1.0
+margin_left = 7.0
+margin_top = 2.0
+margin_right = -7.0
+margin_bottom = 50.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting industry.[center]"
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+fit_content_height = true
+
+[node name="life_bg" type="NinePatchRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -43.0
-margin_top = 182.0
-margin_right = 18.0
-margin_bottom = 182.0
+margin_left = -72.0
+margin_top = 169.0
+margin_right = 73.0
+margin_bottom = 262.0
+rect_min_size = Vector2( 96, 64 )
+texture = ExtResource( 9 )
+
+[node name="enemy_layout" type="HBoxContainer" parent="life_bg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -22.0
+margin_right = 17.0
+margin_bottom = 10.0
 rect_scale = Vector2( 1.5, 1.5 )
 
-[node name="life" type="TextureRect" parent="enemy_layout"]
+[node name="life" type="TextureRect" parent="life_bg/enemy_layout"]
 margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 4 )
 
-[node name="lp" type="Label" parent="enemy_layout"]
+[node name="lp" type="Label" parent="life_bg/enemy_layout"]
 margin_left = 36.0
 margin_right = 52.0
 margin_bottom = 31.0
-text = "10
-"
-
-[node name="player_layout" type="HBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -174.0
-margin_top = -130.0
-margin_right = 0.00012207
-margin_bottom = -94.0
-rect_scale = Vector2( 1.05333, 1 )
-
-[node name="life" type="TextureRect" parent="player_layout"]
-margin_right = 32.0
-margin_bottom = 36.0
-texture = ExtResource( 4 )
-
-[node name="lp" type="Label" parent="player_layout"]
-margin_left = 36.0
-margin_top = 2.0
-margin_right = 52.0
-margin_bottom = 33.0
-text = "10
-"
-
-[node name="mp_atk" type="TextureRect" parent="player_layout"]
-margin_left = 56.0
-margin_right = 88.0
-margin_bottom = 36.0
-texture = ExtResource( 2 )
-
-[node name="mp" type="Label" parent="player_layout"]
-margin_left = 92.0
-margin_top = 2.0
-margin_right = 108.0
-margin_bottom = 33.0
-text = "10
-"
-
-[node name="food" type="TextureRect" parent="player_layout"]
-margin_left = 112.0
-margin_right = 144.0
-margin_bottom = 36.0
-texture = ExtResource( 3 )
-
-[node name="fp" type="Label" parent="player_layout"]
-margin_left = 148.0
-margin_top = 2.0
-margin_right = 164.0
-margin_bottom = 33.0
 text = "10
 "
 

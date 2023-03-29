@@ -7,14 +7,14 @@ onready var up_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_up"
 onready var right_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_right"
 onready var down_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"fight_card/card/AnimatedSprite"
-onready var enemy_name = $"name"
-onready var enemy_life = $"enemy_layout/lp"
-onready var enemy_dialog = $"dialog"
-onready var player_life = $"player_layout/lp"
-onready var player_mp = $"player_layout/mp"
-onready var player_pn = $"player_layout/fp"
-onready var player_layout = $"player_layout"
-onready var enemy_layout = $"enemy_layout"
+onready var enemy_name = $"enemy_name_bg/name"
+onready var enemy_life = $"life_bg/enemy_layout/lp"
+onready var enemy_dialog = $"dialog_bg/dialog"
+onready var player_life = $"stat_bg/player_layout/life/lp"
+onready var player_mp = $"stat_bg/player_layout/mp_atk/mp"
+onready var player_pn = $"stat_bg/player_layout/food/fp"
+onready var player_layout = $"stat_bg/player_layout"
+onready var enemy_layout = $"life_bg/enemy_layout"
 
 var choices:Array
 var life:int
@@ -45,7 +45,7 @@ func updateState(pathNode:GlobalPath.PathNode):
 	player_life.text = str(Player.state.life)
 	player_mp.text = str(Player.state.mp)
 	player_pn.text = str(Player.state.potion)
-	player_layout.rect_position = Vector2(216, 714)
+	player_layout.rect_position = Vector2(25, 21.5)
 	left_text.bbcode_text = "[center]Atk Special[/center]"
 	right_text.bbcode_text = "[center]Potion[/center]"
 	up_text.bbcode_text = "[center]Atk[/center]"
@@ -122,6 +122,7 @@ func _on_fight_card_choice_made(choice):
 				var tween = create_tween()
 				tween.tween_property(player_layout, "modulate:a", 0.5, 0.5)
 				yield(tween, "finished")
+				
 			else:
 				var tween = create_tween()
 				tween.tween_property(player_layout, "modulate", Color("ff0000"), 0.3)

@@ -1,6 +1,6 @@
 extends Control
 
-const DETECTION_TRESHOLD = 100
+const DETECTION_TRESHOLD = 60
 
 onready var card:Panel = $"card"
 onready var back:Panel = $"back"
@@ -56,8 +56,8 @@ func on_clicking(event:InputEventScreenTouch):
 		on_click_release(event.position)
 
 func on_dragging(evt_position:Vector2):
-		var hint_visible_dist = 120
-		var pos = (evt_position - drag_start_pos).limit_length(100)
+		var hint_visible_dist = 70
+		var pos = (evt_position - drag_start_pos).limit_length(50)
 		var choice = vector_to_choice(pos)
 		
 		card.rect_position = pos

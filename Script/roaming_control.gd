@@ -5,9 +5,9 @@ onready var up_text = $"card_control/card/AnimatedSprite/hint_bg/hint_up"
 onready var right_text = $"card_control/card/AnimatedSprite/hint_bg/hint_right"
 onready var down_text = $"card_control/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"card_control/card/AnimatedSprite"
-onready var life_point = $"HBoxContainer/life_point"
-onready var food_point = $"HBoxContainer/food_point"
-onready var description = $"description"
+onready var life_point = $"stat_bg/HBoxContainer/life/life_point"
+onready var food_point = $"stat_bg/HBoxContainer/food/food_point"
+onready var description = $"texture_desc/description"
 
 const TEXT_APPEARING_SPEED = 0.03 
 var choices:Array
