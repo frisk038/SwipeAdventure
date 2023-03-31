@@ -52,7 +52,7 @@ anims/reveal_fight_end = SubResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.211765, 0.270588, 0.309804, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="roaming_control" parent="." instance=ExtResource( 1 )]
 
