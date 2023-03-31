@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Card/intro/expo/card1.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Theme/pixel_art_text_normal.tres" type="Theme" id=3]
 [ext_resource path="res://Script/fighting_card.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/Theme/pixel_art_text.tres" type="Theme" id=6]
@@ -31,15 +31,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
-size = 33
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-extra_spacing_top = 25
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=15]
 size = 25
 outline_size = 2
@@ -62,7 +53,6 @@ position = Vector2( 179, 179 )
 frames = SubResource( 14 )
 
 [node name="back3" type="Panel" parent="."]
-visible = false
 margin_right = 337.0
 margin_bottom = 337.0
 rect_pivot_offset = Vector2( 179, 179 )
@@ -72,7 +62,6 @@ position = Vector2( 179, 179 )
 frames = SubResource( 14 )
 
 [node name="back" type="Panel" parent="."]
-visible = false
 margin_right = 337.0
 margin_bottom = 337.0
 rect_pivot_offset = Vector2( 179, 179 )
@@ -96,41 +85,41 @@ frames = SubResource( 1 )
 visible = false
 modulate = Color( 1, 1, 1, 0.635294 )
 margin_left = -128.0
-margin_top = -43.7143
+margin_top = -128.0
 margin_right = 129.0
-margin_bottom = 41.2857
+margin_bottom = -47.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="hint_up" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
-visible = false
+margin_top = 20.0
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 174.0
 rect_scale = Vector2( 0.4, 0.4 )
-custom_fonts/normal_font = SubResource( 2 )
+theme = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="hint_right" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
-visible = false
+margin_top = 20.0
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 174.0
 rect_scale = Vector2( 0.4, 0.4 )
-custom_fonts/normal_font = SubResource( 2 )
+theme = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="hint_down" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
-visible = false
+margin_top = 20.0
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 174.0
 rect_scale = Vector2( 0.4, 0.4 )
-custom_fonts/normal_font = SubResource( 2 )
+theme = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="hint_left" type="RichTextLabel" parent="card/AnimatedSprite/hint_bg"]
-visible = false
+margin_top = 20.0
 margin_right = 645.0
-margin_bottom = 207.0
+margin_bottom = 174.0
 rect_scale = Vector2( 0.4, 0.4 )
-custom_fonts/normal_font = SubResource( 2 )
+theme = ExtResource( 3 )
 bbcode_enabled = true
 
 [node name="name" type="Label" parent="card"]

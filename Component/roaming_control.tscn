@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Component/card_control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=2]
@@ -8,14 +8,12 @@
 [ext_resource path="res://Assets/UI/desc.png" type="Texture" id=6]
 [ext_resource path="res://Assets/UI/location.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/fight_bg.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Theme/pixel_art_text_desc.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/Theme/pixel_art_text_stats.tres" type="Theme" id=10]
 [ext_resource path="res://Assets/HUD/birthstone_beryl_01.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 21
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 12
 font_data = ExtResource( 2 )
 
 [node name="roaming_control" type="Control"]
@@ -24,6 +22,7 @@ anchor_bottom = 1.0
 script = ExtResource( 5 )
 
 [node name="texture_loc" type="NinePatchRect" parent="."]
+visible = false
 anchor_right = 1.0
 margin_top = 66.0
 margin_bottom = 97.0
@@ -44,9 +43,9 @@ fit_content_height = true
 [node name="texture_desc" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 margin_left = 8.0
-margin_top = 126.0
+margin_top = 88.0
 margin_right = -7.0
-margin_bottom = 241.0
+margin_bottom = 238.0
 texture = ExtResource( 6 )
 
 [node name="description" type="RichTextLabel" parent="texture_desc"]
@@ -54,8 +53,8 @@ anchor_right = 1.0
 margin_left = 7.0
 margin_top = 9.0
 margin_right = -7.0
-margin_bottom = 105.0
-custom_fonts/normal_font = SubResource( 3 )
+margin_bottom = 137.0
+theme = ExtResource( 9 )
 bbcode_enabled = true
 bbcode_text = "[center]Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.[center]"
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
@@ -72,13 +71,14 @@ margin_right = 169.0
 margin_bottom = 208.0
 
 [node name="stat_bg" type="NinePatchRect" parent="."]
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -183.0
-margin_top = -164.0
-margin_bottom = -105.0
+margin_left = -118.0
+margin_top = -162.0
+margin_right = 118.0
+margin_bottom = -76.0
 texture = ExtResource( 8 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="stat_bg"]
@@ -105,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -14.0
+theme = ExtResource( 10 )
 text = "99"
 align = 1
 valign = 2
@@ -130,6 +131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -14.0
+theme = ExtResource( 10 )
 text = "10"
 align = 1
 valign = 2
@@ -154,6 +156,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -14.0
+theme = ExtResource( 10 )
 text = "99"
 
 [connection signal="choice_made" from="card_control" to="." method="_on_card_control_choice_made"]
