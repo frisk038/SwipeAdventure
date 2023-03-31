@@ -7,7 +7,7 @@ onready var up_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_up"
 onready var right_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_right"
 onready var down_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_down"
 onready var img_card = $"fight_card/card/AnimatedSprite"
-onready var enemy_name = $"enemy_name_bg/name"
+onready var enemy_name = $"fight_card/card/name"
 onready var enemy_life = $"life_bg/enemy_layout/lp"
 onready var enemy_dialog = $"dialog_bg/dialog"
 onready var player_life = $"stat_bg/player_layout/life/lp"
@@ -37,6 +37,7 @@ func updateState(pathNode:GlobalPath.PathNode):
 	
 	img_card.frames.clear("default")
 	img_card.frames.add_frame("default", pathNode.img_res)
+	
 	enemy_name.text = pathNode.vname
 	enemy_dialog.bbcode_text = pathNode.desc_text
 	enemy_life.text = str(pathNode.life)
