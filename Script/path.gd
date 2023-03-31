@@ -22,8 +22,9 @@ class PathNode:
 	var up_txt=""
 	var right_txt=""
 	var down_txt=""
-	
-	func _init(a, d, p, s, l, k, n, lt, ut, rt, dt):
+	var location=""
+
+	func _init(a, d, p, s, l, k, n, lt, ut, rt, dt, loc):
 		img_res = a
 		desc_text = d
 		paths = p
@@ -35,7 +36,8 @@ class PathNode:
 		up_txt = ut
 		right_txt = rt
 		down_txt = dt
-		
+		location = loc
+
 
 func path_to_string(path:int)-> String:
 	match path:
@@ -55,7 +57,7 @@ func fill_path(json):
 		var path = PathNode.new(load(jpath["a"]), 
 		jpath["d"], jpath["p"], jpath["s"], jpath["l"], 
 		jpath["k"], jpath["n"], jpath["lt"], jpath["ut"],
-		jpath["rt"], jpath["dt"])
+		jpath["rt"], jpath["dt"], jpath["loc"])
 		game_path.append(path)
 
 func set_card(card):

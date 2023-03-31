@@ -1,5 +1,7 @@
 extends Control
 
+const TEXT_APPEARING_SPEED = 0.03 
+
 onready var card = $"fight_card/card"
 onready var fcard = $"fight_card"
 onready var left_text = $"fight_card/card/AnimatedSprite/hint_bg/hint_left"
@@ -18,12 +20,17 @@ onready var enemy_layout = $"life_bg/enemy_layout"
 
 signal fight_end
 
+var lapsed:float = 0
 var choices:Array
 var life:int
 var atk:int
 var flee_pending:bool = false
 var flee_granted:bool = false
 var flee_tween:Tween
+var dialog:Array=[]
+var win_dialog:String
+var loss_dialog:String
+var flee_dialog:String
 
 func new_timestamp():
 	var tick = OS.get_ticks_msec()
@@ -31,15 +38,25 @@ func new_timestamp():
 	ms.erase(ms.length() - 1, 1)
 	var timestamp = str(tick/3600000)+":"+str(tick/60000).pad_zeros(2)+":"+str(tick/1000).pad_zeros(2)+"."+ms+"\t"
 	return timestamp
-
+	
+func set_random_dialog():
+	lapsed = 0
+	enemy_dialog.visible_characters = 0
+	enemy_dialog.bbcode_text = "[center]"+ dialog[randi() % dialog.size()] +"[/center]"
+	
 func updateState(pathNode:GlobalPath.PathNode):
 	choices = pathNode.paths
+	var tmp_dialog = pathNode.desc_text.split(";", false)
+	win_dialog = tmp_dialog[tmp_dialog.size()-3]
+	loss_dialog = tmp_dialog[tmp_dialog.size()-2]
+	flee_dialog = tmp_dialog[tmp_dialog.size()-1]
+	tmp_dialog.resize(tmp_dialog.size()-3)
+	dialog = tmp_dialog
+	set_random_dialog()
 	
 	img_card.frames.clear("default")
 	img_card.frames.add_frame("default", pathNode.img_res)
-	
 	enemy_name.text = pathNode.vname
-	enemy_dialog.bbcode_text = pathNode.desc_text
 	enemy_life.text = str(pathNode.life)
 	life = pathNode.life
 	atk = pathNode.atk
@@ -97,6 +114,10 @@ func _ready():
 	if err != OK:
 		print("cant connect player_updated signal !", err)
 
+func _physics_process(delta):
+	lapsed += delta
+	enemy_dialog.visible_characters = lapsed/TEXT_APPEARING_SPEED
+
 func _on_Player_player_updated():
 	player_life.text = str(Player.state.life)
 	player_mp.text = str(Player.state.mp)
@@ -135,6 +156,7 @@ func _on_fight_card_choice_made(choice):
 	player_turn_end()
 
 func player_turn_end():
+	set_random_dialog()
 	fcard.set_process_input(false)
 	if life <= 0:
 		emit_signal("fight_end", GlobalPath.LEFT)

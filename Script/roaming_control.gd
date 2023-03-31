@@ -9,7 +9,8 @@ onready var life_point = $"stat_bg/HBoxContainer/life/life_point"
 onready var food_point = $"stat_bg/HBoxContainer/food/food_point"
 onready var money_point = $"stat_bg/HBoxContainer/money/money_point"
 onready var description = $"texture_desc/description"
-onready var card = $card_control
+onready var location = $"card_control/card/location"
+onready var card = $"card_control"
 
 const TEXT_APPEARING_SPEED = 0.03 
 var choices:Array
@@ -19,7 +20,7 @@ func _physics_process(delta):
 	lapsed += delta
 	description.visible_characters = lapsed/TEXT_APPEARING_SPEED
 
-func updateState(pathNode):
+func updateState(pathNode:GlobalPath.PathNode):
 	_on_Player_player_updated()
 	img_card.frames.clear("default")
 	img_card.frames.add_frame("default", pathNode.img_res)
@@ -32,8 +33,10 @@ func updateState(pathNode):
 	down_text.bbcode_text = pathNode.down_txt
 	lapsed = 0
 	description.visible_characters = 0
+	location.text = pathNode.location
 	card.call("reveal_next_card")
 	description.bbcode_text = pathNode.desc_text
+	
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

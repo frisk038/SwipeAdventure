@@ -7,7 +7,7 @@
             1,
             1,
             1,
-            3
+            1
         ],
         "s": "Normal",
         "l": 0,
@@ -16,7 +16,8 @@
         "lt": "[center]Par là ![/center]",
         "ut": "[center]Encore plus loin ![/center]",
         "rt": "[center]Par ici ![/center]",
-        "dt": "[center]Rentrer bredouille...[/center]"
+        "dt": "[center]Rentrer bredouille...[/center]",
+        "loc": "foret"
     },
     {
         "i": 1,
@@ -35,17 +36,18 @@
         "lt": "[center]Par ici ![/center]",
         "ut": "[center]Par là ?[/center]",
         "rt": "[center]Vers là...[/center]",
-        "dt": "[center]C'est pas si mal les patates...[/center]"
+        "dt": "[center]C'est pas si mal les patates...[/center]",
+        "loc": "foret"
     },
     {
         "i": 2,
         "d": "[center]Allez maintenant on rentre ![/center]",
         "a": "res://Assets/Card/intro/expo/card3.png",
         "p": [
-            0,
-            0,
-            0,
-            0
+            3,
+            4,
+            3,
+            3
         ],
         "s": "Normal",
         "l": 0,
@@ -54,11 +56,12 @@
         "lt": "[center]Hâte de manger ce lapin ![/center]",
         "ut": "[center]Elle va etre contente ![/center]",
         "rt": "[center]Pas de patate ce soir ![/center]",
-        "dt": "[center]Je vais pouvoir me reposer ![/center]"
+        "dt": "[center]Je vais pouvoir me reposer ![/center]",
+        "loc": "foret"
     },
     {
         "i": 3,
-        "d": "[center]Ce lapin est a [color=red]MOI[/color]![/center]",
+        "d": "Ce lapin est a [color=red]MOI[/color]!;Le loup vous observe; Le loup se leche les babines; Le loup s'enfuit la queue entre les pattes; Vous vous videz de votre sang;Vous fuyez, et le loup vous juge !;",
         "a": "res://Assets/Card/intro/hunt/card8.png",
         "p": [
             0,
@@ -67,12 +70,33 @@
             0
         ],
         "s": "Combat",
-        "l": 10,
+        "l": 12,
         "k": 1,
-        "n": "Loup Maléché",
+        "n": "Ours Maleché",
         "lt": "[center]None[/center]",
         "ut": "[center]None[/center]",
         "rt": "[center]None[/center]",
-        "dt": "[center]None[/center]"
+        "dt": "[center]None[/center]",
+        "loc": "foret"
+    },
+    {
+        "i": 4,
+        "d": "[center]Raah foutu lapin ! Je te lacherai pas ![/center]",
+        "a": "res://Assets/Card/intro/expo/card7.png",
+        "p": [
+            3,
+            0,
+            0,
+            0
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Chercher par là ![/center]",
+        "ut": "[center]Chercher par ici ![/center]",
+        "rt": "[center]Suivre par là ![/center]",
+        "dt": "[center]Suivre par ici ![/center]",
+        "loc": "Clairière"
     }
 ]

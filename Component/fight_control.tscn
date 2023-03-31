@@ -115,7 +115,6 @@ margin_right = 169.0
 margin_bottom = 208.0
 
 [node name="enemy_name_bg" type="NinePatchRect" parent="."]
-visible = false
 anchor_right = 1.0
 margin_top = 66.0
 margin_bottom = 97.0
