@@ -43,6 +43,7 @@ func updateCard():
 			trans_fight.visible = false
 
 func _on_Path_new_path():
+	SaveManager.save_game()
 	updateCard()
 
 func _on_fight_control_fight_end(path:int):

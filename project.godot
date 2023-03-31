@@ -8,130 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Reference",
-"class": "AnimaAnimationsUtils",
-"language": "GDScript",
-"path": "res://addons/anima/utils/animations.gd"
-}, {
-"base": "Reference",
-"class": "AnimaAwaitableAddChild",
-"language": "GDScript",
-"path": "res://addons/anima/core/deferred_add_child.gd"
-}, {
-"base": "Object",
-"class": "AnimaDeclarationBase",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_base.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationForAnimation",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_for_animation.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationForProperty",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_for_property.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationForRelativeProperty",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_for_relative_property.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationGrid",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_grid.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationGroup",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_group.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationNode",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_node.gd"
-}, {
-"base": "Reference",
-"class": "AnimaDeclarationNodes",
-"language": "GDScript",
-"path": "res://addons/anima/core/declaration/anima_declaration_nodes.gd"
-}, {
-"base": "Reference",
-"class": "AnimaEasing",
-"language": "GDScript",
-"path": "res://addons/anima/core/easings.gd"
-}, {
-"base": "Node",
-"class": "AnimaKeyframesEngine",
-"language": "GDScript",
-"path": "res://addons/anima/core/keyframes-engine.gd"
-}, {
-"base": "Reference",
-"class": "AnimaNode",
-"language": "GDScript",
-"path": "res://addons/anima/core/anima_node.gd"
-}, {
-"base": "Reference",
-"class": "AnimaNodesProperties",
-"language": "GDScript",
-"path": "res://addons/anima/utils/node_properties.gd"
-}, {
-"base": "Reference",
-"class": "AnimaPlayer",
-"language": "GDScript",
-"path": "res://addons/anima/core/player.gd"
-}, {
-"base": "Object",
-"class": "AnimaPropertyList",
-"language": "GDScript",
-"path": "res://addons/anima/utils/anima_properties_list.gd"
-}, {
-"base": "Reference",
-"class": "AnimaStrings",
-"language": "GDScript",
-"path": "res://addons/anima/utils/strings.gd"
-}, {
-"base": "Reference",
-"class": "AnimaTween",
-"language": "GDScript",
-"path": "res://addons/anima/core/tween.gd"
-}, {
-"base": "Reference",
-"class": "AnimaTweenUtils",
-"language": "GDScript",
-"path": "res://addons/anima/utils/tween_utils.gd"
-}, {
-"base": "Reference",
-"class": "AnimaVisualNode",
-"language": "GDScript",
-"path": "res://addons/anima/core/visual_node.gd"
-} ]
-_global_script_class_icons={
-"AnimaAnimationsUtils": "",
-"AnimaAwaitableAddChild": "",
-"AnimaDeclarationBase": "",
-"AnimaDeclarationForAnimation": "",
-"AnimaDeclarationForProperty": "",
-"AnimaDeclarationForRelativeProperty": "",
-"AnimaDeclarationGrid": "",
-"AnimaDeclarationGroup": "",
-"AnimaDeclarationNode": "",
-"AnimaDeclarationNodes": "",
-"AnimaEasing": "",
-"AnimaKeyframesEngine": "",
-"AnimaNode": "",
-"AnimaNodesProperties": "",
-"AnimaPlayer": "",
-"AnimaPropertyList": "",
-"AnimaStrings": "",
-"AnimaTween": "",
-"AnimaTweenUtils": "",
-"AnimaVisualNode": ""
-}
-
 [application]
 
 config/name="Swipe Adventure V 2"
@@ -142,8 +18,7 @@ config/icon="res://icon.png"
 
 Player="*res://Script/player.gd"
 GlobalPath="*res://Script/path.gd"
-ANIMA="*res://addons/anima/core/constants.gd"
-Anima="*res://addons/anima/core/anima.gd"
+SaveManager="*res://Script/save_manager.gd"
 
 [display]
 
@@ -154,10 +29,6 @@ window/energy_saving/keep_screen_on=false
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/anima/plugin.cfg" )
 
 [gui]
 

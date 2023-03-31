@@ -65,7 +65,7 @@ func updateState(pathNode:GlobalPath.PathNode):
 	player_life.text = str(Player.state.life)
 	player_mp.text = str(Player.state.mp)
 	player_pn.text = str(Player.state.potion)
-	player_layout.rect_position = Vector2(25, 21.5)
+	player_layout.rect_position = Vector2(45.5, 27.5)
 	left_text.bbcode_text = "[center]Atk Special[/center]"
 	right_text.bbcode_text = "[center]Potion[/center]"
 	up_text.bbcode_text = "[center]Atk[/center]"

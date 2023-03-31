@@ -22,89 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
-[node name="stat_bg" type="NinePatchRect" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -217.0
-margin_top = -157.0
-margin_right = -7.0
-margin_bottom = -82.0
-texture = ExtResource( 10 )
-
-[node name="player_layout" type="HBoxContainer" parent="stat_bg"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 22.0
-margin_top = -15.5
-margin_right = -25.0
-margin_bottom = 16.5
-rect_min_size = Vector2( 139, 10.5 )
-rect_scale = Vector2( 1.05333, 1 )
-
-[node name="life" type="TextureRect" parent="stat_bg/player_layout"]
-margin_right = 32.0
-margin_bottom = 32.0
-texture = ExtResource( 4 )
-
-[node name="lp" type="Label" parent="stat_bg/player_layout/life"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -16.0
-margin_top = -14.0
-theme = ExtResource( 11 )
-text = "10"
-
-[node name="VSeparator" type="VSeparator" parent="stat_bg/player_layout"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 36.0
-margin_right = 56.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
-
-[node name="mp_atk" type="TextureRect" parent="stat_bg/player_layout"]
-margin_left = 60.0
-margin_right = 92.0
-margin_bottom = 32.0
-texture = ExtResource( 2 )
-
-[node name="mp" type="Label" parent="stat_bg/player_layout/mp_atk"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -16.0
-margin_top = -14.0
-theme = ExtResource( 11 )
-text = "10"
-
-[node name="VSeparator2" type="VSeparator" parent="stat_bg/player_layout"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 96.0
-margin_right = 116.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 20, 0 )
-
-[node name="food" type="TextureRect" parent="stat_bg/player_layout"]
-margin_left = 120.0
-margin_right = 152.0
-margin_bottom = 32.0
-texture = ExtResource( 3 )
-
-[node name="fp" type="Label" parent="stat_bg/player_layout/food"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -16.0
-margin_top = -14.0
-theme = ExtResource( 11 )
-text = "10"
-
 [node name="fight_card" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -187,5 +104,94 @@ margin_right = 60.0
 margin_bottom = 25.0
 theme = ExtResource( 11 )
 text = "10"
+
+[node name="stat_bg" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = -162.0
+margin_right = 118.0
+margin_bottom = -76.0
+texture = ExtResource( 10 )
+
+[node name="player_layout" type="HBoxContainer" parent="stat_bg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.5
+margin_top = -15.5
+margin_right = 72.5
+margin_bottom = 16.5
+alignment = 1
+
+[node name="life" type="TextureRect" parent="stat_bg/player_layout"]
+margin_left = 1.0
+margin_right = 33.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="lp" type="Label" parent="stat_bg/player_layout/life"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+theme = ExtResource( 11 )
+text = "99"
+align = 1
+valign = 2
+
+[node name="VSeparator" type="VSeparator" parent="stat_bg/player_layout"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 37.0
+margin_right = 52.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 15, 15 )
+
+[node name="mp_atk" type="TextureButton" parent="stat_bg/player_layout"]
+margin_left = 56.0
+margin_right = 88.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="mp" type="Label" parent="stat_bg/player_layout/mp_atk"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+theme = ExtResource( 11 )
+text = "10"
+align = 1
+valign = 2
+
+[node name="VSeparator2" type="VSeparator" parent="stat_bg/player_layout"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 92.0
+margin_right = 107.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 15, 15 )
+
+[node name="food" type="TextureRect" parent="stat_bg/player_layout"]
+margin_left = 111.0
+margin_right = 143.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+
+[node name="fp" type="Label" parent="stat_bg/player_layout/food"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+theme = ExtResource( 11 )
+text = "99"
 
 [connection signal="choice_made" from="fight_card" to="." method="_on_fight_card_choice_made"]
