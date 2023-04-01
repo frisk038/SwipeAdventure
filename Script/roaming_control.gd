@@ -11,6 +11,7 @@ onready var money_point = $"stat_bg/HBoxContainer/money/money_point"
 onready var description = $"texture_desc/description"
 onready var location = $"card_control/card/location"
 onready var card = $"card_control"
+onready var inventory = $"bag"
 
 const TEXT_APPEARING_SPEED = 0.03 
 var choices:Array
@@ -58,3 +59,6 @@ func _on_food_pressed():
 	if Player.state.potion > 0:
 		Player.update_stats("potion", Player.state.potion - 1)
 		Player.update_stats("life", Player.state.life+2)
+
+func _on_bag_pressed():
+	inventory.visible = true

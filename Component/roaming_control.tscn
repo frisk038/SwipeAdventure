@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Component/card_control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Assets/Theme/pixel_art_text_desc.tres" type="Theme" id=9]
 [ext_resource path="res://Assets/Theme/pixel_art_text_stats.tres" type="Theme" id=10]
 [ext_resource path="res://Assets/HUD/birthstone_beryl_01.png" type="Texture" id=11]
+[ext_resource path="res://Assets/UI/bag.png" type="Texture" id=12]
+[ext_resource path="res://Component/inventory.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Component/setting_back.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=2]
 size = 21
@@ -20,6 +23,8 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
+
+[node name="setting_back" parent="." instance=ExtResource( 14 )]
 
 [node name="texture_loc" type="NinePatchRect" parent="."]
 visible = false
@@ -86,15 +91,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -72.5
-margin_top = -15.5
-margin_right = 72.5
-margin_bottom = 16.5
+margin_left = -95.0
+margin_top = -15.0
+margin_right = 102.0
+margin_bottom = 17.0
 alignment = 1
 
 [node name="life" type="TextureRect" parent="stat_bg/HBoxContainer"]
-margin_left = 1.0
-margin_right = 33.0
+margin_left = 7.0
+margin_right = 39.0
 margin_bottom = 32.0
 texture = ExtResource( 4 )
 
@@ -112,14 +117,14 @@ valign = 2
 
 [node name="VSeparator" type="VSeparator" parent="stat_bg/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 37.0
-margin_right = 52.0
+margin_left = 43.0
+margin_right = 53.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 15, 15 )
+rect_min_size = Vector2( 10, 15 )
 
 [node name="food" type="TextureButton" parent="stat_bg/HBoxContainer"]
-margin_left = 56.0
-margin_right = 88.0
+margin_left = 57.0
+margin_right = 89.0
 margin_bottom = 32.0
 texture_normal = ExtResource( 3 )
 stretch_mode = 3
@@ -138,14 +143,14 @@ valign = 2
 
 [node name="VSeparator2" type="VSeparator" parent="stat_bg/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 92.0
-margin_right = 107.0
+margin_left = 93.0
+margin_right = 103.0
 margin_bottom = 32.0
-rect_min_size = Vector2( 15, 15 )
+rect_min_size = Vector2( 10, 15 )
 
 [node name="money" type="TextureRect" parent="stat_bg/HBoxContainer"]
-margin_left = 111.0
-margin_right = 143.0
+margin_left = 107.0
+margin_right = 139.0
 margin_bottom = 32.0
 texture = ExtResource( 11 )
 
@@ -159,5 +164,23 @@ margin_top = -14.0
 theme = ExtResource( 10 )
 text = "99"
 
+[node name="VSeparator3" type="VSeparator" parent="stat_bg/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 143.0
+margin_right = 153.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 10, 15 )
+
+[node name="bag" type="TextureButton" parent="stat_bg/HBoxContainer"]
+margin_left = 157.0
+margin_right = 189.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 12 )
+
+[node name="bag" parent="." instance=ExtResource( 13 )]
+visible = false
+
 [connection signal="choice_made" from="card_control" to="." method="_on_card_control_choice_made"]
 [connection signal="pressed" from="stat_bg/HBoxContainer/food" to="." method="_on_food_pressed"]
+[connection signal="pressed" from="stat_bg/HBoxContainer/bag" to="." method="_on_bag_pressed"]

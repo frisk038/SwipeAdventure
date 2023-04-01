@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/UI/inventory.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/return.png" type="Texture" id=2]
+[ext_resource path="res://Script/inventory.gd" type="Script" id=3]
+
+[node name="bag" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.560784 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 204.0
+margin_right = 44.0
+margin_bottom = 290.0
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -181.0
+margin_right = 181.0
+margin_bottom = 182.0
+texture = ExtResource( 1 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
