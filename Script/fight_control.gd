@@ -181,7 +181,6 @@ func player_turn_end():
 		Player.update_stats("life", Player.state.life - atk)
 		if Player.state.life <= 0:
 			emit_signal("fight_end", GlobalPath.UP)
-#			GlobalPath.set_card(choices[GlobalPath.UP])
 	if flee_pending :
 		var start_pos = player_layout.rect_position
 		var tween = create_tween()
@@ -189,8 +188,6 @@ func player_turn_end():
 			.set_trans(Tween.TRANS_ELASTIC)\
 			.set_ease(Tween.EASE_IN_OUT)
 		yield(tween, "finished")
-		player_layout.rect_position = start_pos
 		emit_signal("fight_end", GlobalPath.RIGHT)
-#		GlobalPath.set_card(choices[GlobalPath.RIGHT])
 		return
 	fcard.set_process_input(true)
