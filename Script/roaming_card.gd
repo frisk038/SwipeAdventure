@@ -32,6 +32,7 @@ func on_click_release(evt_position:Vector2):
 	emit_signal("choice_made", choice)
 
 func reveal_next_card():
+	card.visible = false
 	var tween := create_tween()
 	tween.tween_property(back, "rect_scale:x", 0.1, 0.2).set_ease(Tween.EASE_IN_OUT)
 	yield(tween, "finished")
@@ -39,6 +40,7 @@ func reveal_next_card():
 	card.rect_position = Vector2.ZERO
 	card.rect_rotation = 0.0
 	card.rect_scale.x = 0.1
+	card.visible = true
 	tween = create_tween()
 	tween.tween_property(card, "rect_scale:x", 1, 0.2).set_ease(Tween.EASE_IN_OUT)
 	yield(tween, "finished")
