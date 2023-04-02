@@ -8,7 +8,7 @@ const NONE = -1
 
 signal new_path
 
-var game_path:Array
+var game_path:Dictionary
 
 class PathNode:
 	var img_res
@@ -58,7 +58,9 @@ func fill_path(json):
 		jpath["d"], jpath["p"], jpath["s"], jpath["l"], 
 		jpath["k"], jpath["n"], jpath["lt"], jpath["ut"],
 		jpath["rt"], jpath["dt"], jpath["loc"])
-		game_path.append(path)
+		game_path[int(jpath["i"])] = path
+
+
 
 func set_card(card):
 	Player.state.card = card

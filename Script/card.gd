@@ -15,7 +15,7 @@ var is_dragging:bool
 
 signal choice_made
 
-func on_click_release(evt_position:Vector2):
+func on_click_release(_evt_position:Vector2):
 	print('on_click_release() must be overriden')
 	
 func show_hint(choice:int):

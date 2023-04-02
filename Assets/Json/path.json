@@ -1,7 +1,7 @@
 [
     {
         "i": 0,
-        "d": "[center]Y en a marre de manger des patates, il me faut de la viande ! Je jure que le prochain animal que je croise ca le regretter ![/center]",
+        "d": "[center]J'ai tellement faim, il me faut vraiment de la viande ! Je commence à saturer de manger des patates...[/center]",
         "a": "res://Assets/Card/intro/expo/card1.png",
         "p": [
             1,
@@ -13,15 +13,15 @@
         "l": 0,
         "k": 0,
         "n": "_",
-        "lt": "[center]Par là ![/center]",
-        "ut": "[center]Encore plus loin ![/center]",
-        "rt": "[center]Par ici ![/center]",
-        "dt": "[center]Rentrer bredouille...[/center]",
-        "loc": "foret"
+        "lt": "[center]Chercher par là[/center]",
+        "ut": "[center]Chercher par ici[/center]",
+        "rt": "[center]Aller là bas[/center]",
+        "dt": "[center]Vers ici[/center]",
+        "loc": "forêt"
     },
     {
         "i": 1,
-        "d": "[center]\"Grrrowl\" Ah ça c'etait mon ventre ! Allez un truc, n'importe quoi... Je sens qu'elle m'attends avec sa soupe...[/center]",
+        "d": "[center]Depuis la Grande Paix, on s'est installé hors de la ville et  on ne fait que s'entraîner et manger ces satanés patates ![/center]",
         "a": "res://Assets/Card/intro/expo/card2.png",
         "p": [
             2,
@@ -33,19 +33,19 @@
         "l": 0,
         "k": 0,
         "n": "_",
-        "lt": "[center]Par ici ![/center]",
-        "ut": "[center]Par là ?[/center]",
-        "rt": "[center]Vers là...[/center]",
-        "dt": "[center]C'est pas si mal les patates...[/center]",
-        "loc": "foret"
+        "lt": "[center]Fouiller là[/center]",
+        "ut": "[center]Vers ici[/center]",
+        "rt": "[center]Par là[/center]",
+        "dt": "[center]Regerder là[/center]",
+        "loc": "forêt"
     },
     {
         "i": 2,
-        "d": "[center]Allez maintenant on rentre ![/center]",
+        "d": "[center]Et avec tout cet entraînement, j'ai encore jamais reussi à la battre argh ![/center]",
         "a": "res://Assets/Card/intro/expo/card3.png",
         "p": [
             3,
-            4,
+            3,
             3,
             3
         ],
@@ -53,38 +53,218 @@
         "l": 0,
         "k": 0,
         "n": "_",
-        "lt": "[center]Hâte de manger ce lapin ![/center]",
-        "ut": "[center]Elle va etre contente ![/center]",
-        "rt": "[center]Pas de patate ce soir ![/center]",
-        "dt": "[center]Je vais pouvoir me reposer ![/center]",
-        "loc": "foret"
+        "lt": "[center]Aller ici[/center]",
+        "ut": "[center]Regarder là[/center]",
+        "rt": "[center]Chercher là[/center]",
+        "dt": "[center]Vers ici[/center]",
+        "loc": "forêt"
     },
     {
         "i": 3,
-        "d": "Ce lapin est a [color=red]MOI[/color]!;Le loup vous observe; Le loup se leche les babines; Le loup s'enfuit la queue entre les pattes; Vous vous videz de votre sang;Vous fuyez, et le loup vous juge !;",
+        "d": "[center]Bon au moins j'ai appris deux trois trucs ! Meme si elle dit rien je suis sur qu'elle en a aussi marre que moi de nous faire des patates[/center]",
+        "a": "res://Assets/Card/intro/expo/card4.png",
+        "p": [
+            4,
+            4,
+            4,
+            4
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Chercher là[/center]",
+        "ut": "[center]Aller ici[/center]",
+        "rt": "[center]Fouiller là[/center]",
+        "dt": "[center]Chercher ici[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 4,
+        "d": "[center]Oh ! Un [color=red]lapin[/color] ! Je vais le degommer ![/center]",
+        "a": "res://Assets/Card/intro/hunt/card1.png",
+        "p": [
+            5,
+            5,
+            6,
+            6
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Tirer une flèche[/center]",
+        "ut": "[center]Lancer une pierre[/center]",
+        "rt": "[center]L'ignorer[/center]",
+        "dt": "[center]Foncer vers[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 5,
+        "d": "[center]Je l'ai eu mais il s'enfuit, je vais suivre les tâches de sang...[/center]",
+        "a": "res://Assets/Card/intro/hunt/card2.png",
+        "p": [
+            7,
+            5,
+            5,
+            5
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par là[/center]",
+        "ut": "[center]Par ici[/center]",
+        "rt": "[center]Vers là[/center]",
+        "dt": "[center]Vers ici[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 6,
+        "d": "[center]Mince !! Il s'est enfuit, je suis vraiment un incapable ! Allez je vais là retrouver et manger ses patates...[/center]",
+        "a": "res://Assets/Card/intro/expo/card8.png",
+        "p": [
+            13,
+            13,
+            13,
+            13
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Rentrer[/center]",
+        "ut": "[center]Rentrer[/center]",
+        "rt": "[center]Rentrer[/center]",
+        "dt": "[center]Rentrer[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 7,
+        "d": "[center]Incapable de le coincer en un seul coup...[/center]",
+        "a": "res://Assets/Card/intro/hunt/card3.png",
+        "p": [
+            4,
+            9,
+            4,
+            4
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par là[/center]",
+        "ut": "[center]Par là[/center]",
+        "rt": "[center]Par là[/center]",
+        "dt": "[center]Par là[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 9,
+        "d": "[center]Elle va etre tellement deçu si je rentre bredouille[/center]",
+        "a": "res://Assets/Card/intro/hunt/card4.png",
+        "p": [
+            10,
+            5,
+            5,
+            5
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par là[/center]",
+        "ut": "[center]Par là[/center]",
+        "rt": "[center]Par là[/center]",
+        "dt": "[center]Par là[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 10,
+        "d": "[center]D'ailleurs que fait elle avec un troufion comme moi...[/center]",
+        "a": "res://Assets/Card/intro/hunt/card5.png",
+        "p": [
+            7,
+            7,
+            11,
+            7
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Vers là[/center]",
+        "ut": "[center]Vers là[/center]",
+        "rt": "[center]Vers là[/center]",
+        "dt": "[center]Vers là[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 11,
+        "d": "[center]Elle qui s'est illustrée plus d'une fois sur le terrain, reconnue parmis les notres...[/center]",
+        "a": "res://Assets/Card/intro/hunt/card6.png",
+        "p": [
+            12,
+            9,
+            9,
+            9
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Par ici[/center]",
+        "ut": "[center]Par ici[/center]",
+        "rt": "[center]Par ici[/center]",
+        "dt": "[center]Par ici[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 12,
+        "d": "[center]Enfin ! On va bien manger ce soir, j'espere qu'elle va etre fier de moi ![/center]",
         "a": "res://Assets/Card/intro/hunt/card8.png",
         "p": [
+            13,
+            13,
+            13,
+            13
+        ],
+        "s": "Normal",
+        "l": 0,
+        "k": 0,
+        "n": "_",
+        "lt": "[center]Rentrer[/center]",
+        "ut": "[center]Rentrer[/center]",
+        "rt": "[center]Rentrer[/center]",
+        "dt": "[center]Rentrer[/center]",
+        "loc": "forêt"
+    },
+    {
+        "i": 13,
+        "d": "Un loup vous tombe dessus !;Le loup semble affamé;Il vous observe;Le loup se leche les babines;Le loup s'enfuit la queue entre les pattes; Vous vous videz de votre sang;Vous fuyez, et le loup vous juge !;",
+        "a": "res://Assets/Card/intro/loup.png",
+        "p": [
+            14,
             0,
-            1,
-            2,
+            14,
             0
         ],
         "s": "Combat",
-        "l": 12,
+        "l": 10,
         "k": 1,
-        "n": "Ours Maleché",
+        "n": "Loup affamé",
         "lt": "[center]None[/center]",
         "ut": "[center]None[/center]",
         "rt": "[center]None[/center]",
         "dt": "[center]None[/center]",
-        "loc": "foret"
+        "loc": "forêt"
     },
     {
-        "i": 4,
-        "d": "[center]Raah foutu lapin ! Je te lacherai pas ![/center]",
-        "a": "res://Assets/Card/intro/expo/card7.png",
+        "i": 14,
+        "d": "[center]Voilà notre bicoque, j'ai hate de la retrouver ![/center]",
+        "a": "res://Assets/Card/intro/house.png",
         "p": [
-            3,
+            0,
             0,
             0,
             0
@@ -93,10 +273,10 @@
         "l": 0,
         "k": 0,
         "n": "_",
-        "lt": "[center]Chercher par là ![/center]",
-        "ut": "[center]Chercher par ici ![/center]",
-        "rt": "[center]Suivre par là ![/center]",
-        "dt": "[center]Suivre par ici ![/center]",
-        "loc": "Clairière"
+        "lt": "[center]Rentrer[/center]",
+        "ut": "[center]Rentrer[/center]",
+        "rt": "[center]Rentrer[/center]",
+        "dt": "[center]Rentrer[/center]",
+        "loc": "maison"
     }
 ]

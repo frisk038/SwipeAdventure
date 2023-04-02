@@ -21,7 +21,7 @@ func set_pause_scene(rootNode : Node, pause : bool, ignoredChilds : PoolStringAr
 			set_pause_scene(node, pause, ignoredChilds)
 
 func updateCard():
-	var curCard = GlobalPath.game_path[Player.state.card]
+	var curCard:GlobalPath.PathNode = GlobalPath.game_path[Player.state.card]
 	match curCard.special:
 		"Normal":
 			set_pause_scene(fighting_ui, true)
