@@ -54,11 +54,11 @@ func path_to_string(path:int)-> String:
 
 func fill_path(json):
 	for jpath in json:
-		var path = PathNode.new(load(jpath["a"]), 
-		jpath["d"], jpath["p"], jpath["s"], jpath["l"], 
-		jpath["k"], jpath["n"], jpath["lt"], jpath["ut"],
-		jpath["rt"], jpath["dt"], jpath["loc"])
-		game_path[int(jpath["i"])] = path
+		var path = PathNode.new(load(jpath["asset"]), 
+		jpath["desc"], jpath["path"], jpath["type"], jpath["enemy_life"], 
+		jpath["enemy_atk"], jpath["enemy_name"], jpath["left_text"], jpath["up_text"],
+		jpath["right_text"], jpath["down_text"], jpath["location"])
+		game_path[int(jpath["index"])] = path
 
 
 

@@ -15,11 +15,11 @@ class PlayerState:
 	
 	func reset():
 		life = 10
-		atk = randi()%10+1
-		mp = randi()%10+1
+		atk = randi()%3+1
+		mp = randi()%5+1
 		potion = 5
 		luck = randi()%10+1
-		card = 0
+		card = 1
 		money = randi()%99+1
 	
 	func save():

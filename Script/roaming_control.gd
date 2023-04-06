@@ -34,7 +34,7 @@ func updateState(pathNode:GlobalPath.PathNode):
 	down_text.bbcode_text = pathNode.down_txt
 	lapsed = 0
 	description.visible_characters = 0
-	location.text = pathNode.location
+	location.text = pathNode.location if pathNode.location else location.text
 	card.call("reveal_next_card")
 	description.bbcode_text = pathNode.desc_text
 	
